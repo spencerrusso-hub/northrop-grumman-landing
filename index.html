@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nominal × Northrop Grumman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* =============================================
+     NORTHROP GRUMMAN BRAND
+     Black #0a0a0a | White #ffffff
+     Accent: white on dark, black on light
+     Font: Futura-PT → Barlow (geometric, heavy)
+     Style: stark, all-caps, ultra-tracked type
+  ============================================= */
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Futura-PT', 'Barlow', 'Century Gothic', Arial, sans-serif;
+    background: #fff;
+    color: #0a0a0a;
+  }
+
+  /* ── HEADER ─────────────────────────────────── */
+  header {
+    background: #0a0a0a;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 68px;
+    border-bottom: 1px solid #222;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* NG-style stacked wordmark with corner bracket */
+  .ng-wordmark {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ng-wordmark-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .ng-wordmark-text span {
+    font-size: 13px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* The NG bracket corner mark */
+  .ng-bracket {
+    width: 18px;
+    height: 22px;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .ng-bracket::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 100%; height: 100%;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+  }
+
+  .header-divider {
+    width: 1px;
+    height: 28px;
+    background: #333;
+  }
+
+  .header-right-label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .header-product {
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .header-client-sub {
+    font-size: 10px;
+    font-weight: 600;
+    color: #666;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .compliance-badges {
+    display: flex;
+    gap: 6px;
+  }
+
+  .badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border: 1px solid;
+  }
+
+  .badge-itar     { color: #f59e0b; border-color: rgba(245,158,11,0.4); }
+  .badge-airgapped{ color: #34d399; border-color: rgba(52,211,153,0.4); }
+  .badge-govcloud { color: #60a5fa; border-color: rgba(96,165,250,0.4); }
+  .badge-export   { color: #c084fc; border-color: rgba(192,132,252,0.4); }
+
+  /* ── HERO ────────────────────────────────────── */
+  .hero {
+    background: #0a0a0a;
+    padding: 88px 40px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* NG-style angled line graphic */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.025) 100%);
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', 'Futura-PT', 'Century Gothic', Arial, sans-serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 0.95;
+    max-width: 820px;
+    margin-bottom: 28px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .hero h1 span {
+    color: #fff;
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: #777;
+    max-width: 540px;
+    line-height: 1.65;
+    margin-bottom: 60px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  .stats-bar {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    border-top: 1px solid #1e1e1e;
+    padding-top: 36px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    padding-right: 56px;
+    margin-right: 56px;
+    border-right: 1px solid #1e1e1e;
+  }
+
+  .stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+
+  .stat-num {
+    font-family: 'Barlow Condensed', 'Futura-PT', Arial, sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
+
+  .stat-num sup { font-size: 18px; }
+
+  .stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #555;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  /* ── TAB NAV ──────────────────────────────────── */
+  .tabs-wrapper {
+    position: sticky;
+    top: 68px;
+    z-index: 90;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 40px;
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .tab-btn {
+    padding: 0 24px;
+    height: 52px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #888;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.12s;
+    font-family: inherit;
+    position: relative;
+  }
+
+  .tab-btn:hover { color: #0a0a0a; }
+
+  /* NG-style active tab: rectangular outline box */
+  .tab-btn.active {
+    color: #0a0a0a;
+    box-shadow: inset 0 0 0 1px #0a0a0a;
+  }
+
+  /* ── SECTIONS ─────────────────────────────────── */
+  .tab-section {
+    display: none;
+    padding: 72px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .tab-section.active { display: block; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    gap: 40px;
+  }
+
+  .section-title h2 {
+    font-family: 'Barlow Condensed', 'Futura-PT', Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: #0a0a0a;
+    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .section-title p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    max-width: 520px;
+    font-weight: 400;
+  }
+
+  .metric-badge {
+    background: #0a0a0a;
+    padding: 24px 32px;
+    text-align: right;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .metric-num {
+    font-family: 'Barlow Condensed', 'Futura-PT', Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    display: block;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .metric-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+
+  .subsection-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  /* ── JOB CARDS ────────────────────────────────── */
+  .job-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #e0e0e0;
+    margin-bottom: 56px;
+    border: 1px solid #e0e0e0;
+  }
+
+  .job-card {
+    background: #fff;
+    padding: 28px 24px;
+    transition: background 0.12s;
+  }
+
+  .job-card:hover { background: #f8f8f8; }
+
+  .job-dept {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #0a0a0a;
+    padding: 3px 8px;
+    margin-bottom: 14px;
+  }
+
+  .job-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 6px;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+
+  .job-location {
+    font-size: 12px;
+    font-weight: 500;
+    color: #999;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .job-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.65;
+  }
+
+  .job-desc em {
+    font-style: normal;
+    color: #0a0a0a;
+    font-weight: 600;
+  }
+
+  /* ── IMAGE SECTION ───────────────────────────── */
+  .section-img {
+    overflow: hidden;
+    margin-bottom: 56px;
+    background: #0a0a0a;
+    position: relative;
+    aspect-ratio: 16/7;
+  }
+
+  .section-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.5;
+    filter: grayscale(60%);
+  }
+
+  .section-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.4) 55%, transparent 100%);
+    z-index: 1;
+  }
+
+  .img-caption {
+    position: absolute;
+    bottom: 32px;
+    left: 36px;
+    color: #fff;
+    font-family: 'Barlow Condensed', 'Futura-PT', Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    z-index: 2;
+    max-width: 600px;
+    line-height: 1.15;
+  }
+
+  /* ── SOLUTION CARDS ──────────────────────────── */
+  .solution-header {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .solution-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .solution-card {
+    padding: 28px;
+    border: 1px solid #e8e8e8;
+    transition: border-color 0.12s, box-shadow 0.12s;
+  }
+
+  .solution-card:hover {
+    border-color: #0a0a0a;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .solution-card.core    { background: #fafafa; }
+  .solution-card.connect { background: #fafafa; }
+  .solution-card.ai      { background: #fafafa; }
+
+  .product-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    margin-bottom: 14px;
+    border: 1px solid;
+  }
+
+  .badge-core    { color: #3730a3; border-color: #c7d2fe; background: #eef2ff; }
+  .badge-connect { color: #166534; border-color: #bbf7d0; background: #f0fdf4; }
+  .badge-ai      { color: #6b21a8; border-color: #e9d5ff; background: #fdf4ff; }
+
+  .solution-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .solution-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  .solution-outcome {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0a0a0a;
+    letter-spacing: 0.03em;
+    padding-top: 12px;
+    border-top: 1px solid #e8e8e8;
+  }
+
+  /* ── FOOTER ──────────────────────────────────── */
+  footer {
+    background: #0a0a0a;
+    padding: 72px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .footer-left p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .footer-left strong {
+    font-family: 'Barlow Condensed', 'Futura-PT', Arial, sans-serif;
+    color: #fff;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  /* Ghost button — matches NG's "Learn More ›" style */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: 1px solid #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.12s, color 0.12s;
+    font-family: inherit;
+  }
+
+  .cta-btn::after { content: '›'; font-size: 18px; font-weight: 400; }
+  .cta-btn:hover  { background: #fff; color: #0a0a0a; }
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 900px) {
+    header { padding: 0 20px; }
+    .compliance-badges { display: none; }
+    .hero { padding: 56px 20px 48px; }
+    .hero h1 { font-size: 48px; }
+    .tabs-wrapper { padding: 0 20px; top: 68px; }
+    .tab-section { padding: 48px 20px; }
+    .section-header { flex-direction: column; }
+    .job-cards { grid-template-columns: 1fr; }
+    .solution-cards { grid-template-columns: 1fr; }
+    footer { flex-direction: column; padding: 48px 20px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-left">
+    <!-- NG stacked wordmark with bracket mark -->
+    <div class="ng-wordmark">
+      <div class="ng-wordmark-text">
+        <span>Northrop</span>
+        <span>Grumman</span>
+      </div>
+      <div class="ng-bracket"></div>
+    </div>
+    <div class="header-divider"></div>
+    <div class="header-right-label">
+      <span class="header-product">Nominal</span>
+      <span class="header-client-sub">Test Data Platform</span>
+    </div>
+  </div>
+
+  <div class="compliance-badges">
+    <span class="badge badge-itar">ITAR Ready</span>
+    <span class="badge badge-airgapped">Air-Gapped</span>
+    <span class="badge badge-govcloud">AWS GovCloud</span>
+    <span class="badge badge-export">Export Control</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Nominal × Northrop Grumman</div>
+  <h1>Stop losing test campaigns<br>to <span>data fragmentation.</span></h1>
+  <p class="hero-sub">Northrop Grumman is simultaneously executing B-21, Sentinel, HALO, and next-generation mission systems. The engineers you're hiring need test data infrastructure that keeps up with the portfolio.</p>
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">5,000<sup>+</sup></span>
+      <span class="stat-label">Open Engineering Roles</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">$84B</span>
+      <span class="stat-label">Funded Backlog</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">$16.7B</span>
+      <span class="stat-label">Annual Revenue</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">5</span>
+      <span class="stat-label">Major Programs</span>
+    </div>
+  </div>
+</section>
+
+<!-- TAB NAV -->
+<div class="tabs-wrapper">
+  <button class="tab-btn active" onclick="showTab('propulsion', this)">Propulsion &amp; Test</button>
+  <button class="tab-btn" onclick="showTab('systems', this)">Systems Integration</button>
+  <button class="tab-btn" onclick="showTab('space', this)">Space Systems</button>
+  <button class="tab-btn" onclick="showTab('aero', this)">Aeronautics</button>
+  <button class="tab-btn" onclick="showTab('mission', this)">Mission Systems</button>
+  <button class="tab-btn" onclick="showTab('manufacturing', this)">Manufacturing</button>
+</div>
+
+<!-- =================== TAB: PROPULSION =================== -->
+<div id="tab-propulsion" class="tab-section active">
+  <div class="section-header">
+    <div class="section-title">
+      <h2>Propulsion &amp; Test Engineering</h2>
+      <p>Sentinel ICBM propulsion qualification. Tactical missile motor testing. Your propulsion test teams are generating terabytes across Bacchus, Promontory, and Allegany — without a unified data layer.</p>
+    </div>
+    <div class="metric-badge">
+      <span class="metric-num">10×</span>
+      <span class="metric-label">faster test-to-decision<br>across propulsion campaigns</span>
+    </div>
+  </div>
+
+  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
+  <div class="job-cards">
+    <div class="job-card">
+      <span class="job-dept">Propulsion</span>
+      <div class="job-title">Propulsion Test Engineer – Sentinel</div>
+      <div class="job-location">📍 Bacchus, UT</div>
+      <div class="job-desc">Responsible for <em>motor qualification and static fire campaigns</em> for Sentinel Stage 1. Currently requires manual correlation between DAQ systems, chamber pressure sensors, and stress data across test events.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">Data &amp; Analytics</span>
+      <div class="job-title">Test Data Systems Engineer</div>
+      <div class="job-location">📍 Promontory, UT</div>
+      <div class="job-desc">Owns <em>sensor data pipelines</em> from test stand instrumentation. Building custom tooling from scratch to make propulsion test data accessible across facilities in real time.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">Propulsion</span>
+      <div class="job-title">Sr. Propulsion Systems Engineer</div>
+      <div class="job-location">📍 Allegany Ballistics Lab, WV</div>
+      <div class="job-desc">Responsible for <em>solid rocket motor acceptance testing</em> across tactical programs. Tracking results across dozens of test events per year with no automated regression or cross-program comparison.</div>
+    </div>
+  </div>
+
+
+  <div class="solution-header">How Nominal solves it</div>
+  <div class="solution-cards">
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>Unified propulsion test capture</h4>
+      <p>Automatically ingest DAQ, telemetry, and sensor streams from Bacchus, Promontory, and Allegany test stands. Every channel, every test event, in one place.</p>
+      <div class="solution-outcome">→ Engineers across facilities see shared data within minutes of a fire</div>
+    </div>
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>Cross-campaign regression</h4>
+      <p>Compare motor performance across every qualification and acceptance test automatically. Spot anomalies before they halt a program milestone.</p>
+      <div class="solution-outcome">→ Qualification decisions in hours, not days</div>
+    </div>
+    <div class="solution-card connect">
+      <span class="product-badge badge-connect">Nominal Connect</span>
+      <h4>Facility-to-program data bridge</h4>
+      <p>Give every systems engineer — whether at Bacchus, Promontory, or Redondo Beach — real-time access to test results without analyst bottlenecks.</p>
+      <div class="solution-outcome">→ Eliminate the dedicated data analyst bottleneck</div>
+    </div>
+    <div class="solution-card ai">
+      <span class="product-badge badge-ai">Nominal AI</span>
+      <h4>Anomaly detection on combustion data</h4>
+      <p>Automatically flag off-nominal signatures in thrust, chamber pressure, and burn rate data. Surface issues that would otherwise take days to find in raw telemetry.</p>
+      <div class="solution-outcome">→ From 4-hour reviews to 20-minute debriefs</div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== TAB: SYSTEMS INTEGRATION =================== -->
+<div id="tab-systems" class="tab-section">
+  <div class="section-header">
+    <div class="section-title">
+      <h2>Systems Integration &amp; Test</h2>
+      <p>B-21 and Sentinel integration involves thousands of test events across hardware, software, and RF subsystems. Your SIT teams are drowning in data from disparate test stations with no common infrastructure.</p>
+    </div>
+    <div class="metric-badge">
+      <span class="metric-num">8×</span>
+      <span class="metric-label">faster post-test<br>data correlation</span>
+    </div>
+  </div>
+
+  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
+  <div class="job-cards">
+    <div class="job-card">
+      <span class="job-dept">Systems Test</span>
+      <div class="job-title">Systems Integration &amp; Test Engineer – B-21</div>
+      <div class="job-location">📍 Palmdale, CA</div>
+      <div class="job-desc">Manages <em>ground test and integration data across B-21 development</em>. Currently exporting raw telemetry streams post-test for manual review by separate engineering teams.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">Ground Systems</span>
+      <div class="job-title">Ground Systems Integration Engineer</div>
+      <div class="job-location">📍 Redondo Beach, CA</div>
+      <div class="job-desc">Building <em>custom ground support equipment data tooling</em> for Sentinel. Each test campaign requires bespoke integration work between test stations and engineering review tools.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">Mission Assurance</span>
+      <div class="job-title">Mission Assurance Engineer</div>
+      <div class="job-location">📍 Palmdale, CA</div>
+      <div class="job-desc">Responsible for <em>post-test anomaly investigation and data review</em> across B-21 ground and flight tests. Correlation across subsystems requires pulling from multiple disconnected databases.</div>
+    </div>
+  </div>
+
+
+  <div class="solution-header">How Nominal solves it</div>
+  <div class="solution-cards">
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>Test event ingestion and archiving</h4>
+      <p>Capture every channel from every SIT event in a structured, searchable archive. Query across campaigns in seconds instead of pulling raw files from disconnected systems.</p>
+      <div class="solution-outcome">→ Every test event accessible to every engineer in minutes</div>
+    </div>
+    <div class="solution-card connect">
+      <span class="product-badge badge-connect">Nominal Connect</span>
+      <h4>Palmdale → Redondo Beach data sync</h4>
+      <p>Eliminate the gap between what test ops sees at the integration facility and what systems engineering sees at the program office. Real-time shared access, no manual packaging.</p>
+      <div class="solution-outcome">→ Post-test debrief starts before the team leaves the floor</div>
+    </div>
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>Cross-campaign trending</h4>
+      <p>Track system health trends across the full B-21 and Sentinel test manifest. Catch recurring anomalies before they become program risks.</p>
+      <div class="solution-outcome">→ Proactive anomaly management across major programs</div>
+    </div>
+    <div class="solution-card ai">
+      <span class="product-badge badge-ai">Nominal AI</span>
+      <h4>Automated test readiness checks</h4>
+      <p>Build the data infrastructure for next-generation programs before the first test event. Nominal's flexible schema maps to any system architecture from day one.</p>
+      <div class="solution-outcome">→ Day-one data infrastructure for new programs</div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== TAB: SPACE SYSTEMS =================== -->
+<div id="tab-space" class="tab-section">
+  <div class="section-header">
+    <div class="section-title">
+      <h2>Space Systems</h2>
+      <p>HALO lunar gateway module. Space-based radar. Next-gen satellite buses. Space Systems is executing some of the most complex AIT campaigns in the industry — with test data scattered across disconnected tools.</p>
+    </div>
+    <div class="metric-badge">
+      <span class="metric-num">60%</span>
+      <span class="metric-label">fewer hours lost to<br>AIT data correlation</span>
+    </div>
+  </div>
+
+  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
+  <div class="job-cards">
+    <div class="job-card">
+      <span class="job-dept">Spacecraft AIT</span>
+      <div class="job-title">Spacecraft Test Engineer – HALO</div>
+      <div class="job-location">📍 Gilbert, AZ</div>
+      <div class="job-desc">Executing <em>functional and environmental test campaigns</em> for the HALO lunar gateway module. Correlating thermal-vac, vibration, and EMI data across multiple test configurations in spreadsheets.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">Avionics</span>
+      <div class="job-title">Avionics Systems Test Engineer</div>
+      <div class="job-location">📍 Redondo Beach, CA</div>
+      <div class="job-desc">Testing <em>satellite avionics hardware</em> through qualification campaigns. Bus telemetry and test data live in separate systems with no automated cross-correlation.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">Mission Systems</span>
+      <div class="job-title">Lead Systems Test Engineer, Space</div>
+      <div class="job-location">📍 Redondo Beach, CA</div>
+      <div class="job-desc">Leading <em>AIT for satellite programs</em> under schedule pressure. Manual data stitching between test stations is one of the top drivers of schedule slip.</div>
+    </div>
+  </div>
+
+  <div class="section-img">
+    <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1400&q=80" alt="Space Systems" />
+    <div class="img-caption">Every Signal, Every Test, Every Program.</div>
+  </div>
+
+  <div class="solution-header">How Nominal solves it</div>
+  <div class="solution-cards">
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>Spacecraft AIT data unification</h4>
+      <p>Connect thermal-vac chambers, vibration tables, and RF test equipment to a single data layer. Every engineer sees the same data in real time, regardless of test station.</p>
+      <div class="solution-outcome">→ AIT teams spend time analyzing, not formatting</div>
+    </div>
+    <div class="solution-card connect">
+      <span class="product-badge badge-connect">Nominal Connect</span>
+      <h4>Test-to-ops handoff</h4>
+      <p>Pass the complete AIT dataset directly to mission operations teams. No re-entering data, no "what configuration was this?" at launch readiness review.</p>
+      <div class="solution-outcome">→ Operations teams ready at launch</div>
+    </div>
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>Multi-program AIT tracking</h4>
+      <p>Run HALO, space-based radar, and satellite AIT campaigns concurrently without losing track of where each program stands.</p>
+      <div class="solution-outcome">→ Scale AIT without scaling headcount</div>
+    </div>
+    <div class="solution-card ai">
+      <span class="product-badge badge-ai">Nominal AI</span>
+      <h4>Environmental test anomaly detection</h4>
+      <p>Flag unexpected thermal responses, vibration transmissibility anomalies, or EMI interference patterns in real time during test.</p>
+      <div class="solution-outcome">→ Find issues before they become NCRs</div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== TAB: AERONAUTICS =================== -->
+<div id="tab-aero" class="tab-section">
+  <div class="section-header">
+    <div class="section-title">
+      <h2>Aeronautics Systems</h2>
+      <p>B-21 is the most advanced strike aircraft ever built. Flight test at Edwards is generating more data per sortie than any program in Northrop's history — and your teams need to review it faster.</p>
+    </div>
+    <div class="metric-badge">
+      <span class="metric-num">5×</span>
+      <span class="metric-label">faster flight test<br>data review</span>
+    </div>
+  </div>
+
+  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
+  <div class="job-cards">
+    <div class="job-card">
+      <span class="job-dept">Flight Test</span>
+      <div class="job-title">Flight Test Engineer – B-21</div>
+      <div class="job-location">📍 Edwards AFB, CA</div>
+      <div class="job-desc">Executing <em>B-21 flight test sorties and post-flight data analysis</em>. Each sortie generates terabytes of FTI data requiring hours of manual processing before engineers can begin review.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">Structures</span>
+      <div class="job-title">Structures Test Engineer</div>
+      <div class="job-location">📍 Palmdale, CA</div>
+      <div class="job-desc">Responsible for <em>airframe structural test and fatigue analysis</em>. Managing strain gauge, load, and acoustic data from high-channel-count test articles across development campaigns.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">Avionics</span>
+      <div class="job-title">Avionics Systems Integration Engineer</div>
+      <div class="job-location">📍 Palmdale, CA</div>
+      <div class="job-desc">Integrating and testing <em>advanced avionics systems</em> on B-21. Test data from individual LRUs lives in separate systems with no automated correlation to vehicle-level performance.</div>
+    </div>
+  </div>
+
+  <div class="section-img">
+    <img src="https://images.unsplash.com/photo-1540479859555-17af45c78602?w=1400&q=80" alt="Flight Test" />
+    <div class="img-caption">Every sortie's data reviewed before the next one flies.</div>
+  </div>
+
+  <div class="solution-header">How Nominal solves it</div>
+  <div class="solution-cards">
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>Flight test data ingestion and review</h4>
+      <p>Automatically ingest FTI data from every B-21 sortie. Time-align all channels and make the full dataset searchable within minutes of landing.</p>
+      <div class="solution-outcome">→ Post-flight review starts on the drive back from the flight line</div>
+    </div>
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>Cross-sortie regression</h4>
+      <p>Compare performance across every flight test sortie automatically. Spot anomalies and trends across the test matrix without rebuilding analysis scripts for each flight.</p>
+      <div class="solution-outcome">→ Test point closeout in hours, not days</div>
+    </div>
+    <div class="solution-card connect">
+      <span class="product-badge badge-connect">Nominal Connect</span>
+      <h4>Edwards → Palmdale data bridge</h4>
+      <p>Give every systems engineer at the program office real-time visibility into flight test results. No waiting for data packages to be manually assembled and distributed.</p>
+      <div class="solution-outcome">→ Program office informed same day as the sortie</div>
+    </div>
+    <div class="solution-card ai">
+      <span class="product-badge badge-ai">Nominal AI</span>
+      <h4>Anomaly detection across flight test</h4>
+      <p>Automatically flag off-nominal signatures across all subsystems. Surface issues that would otherwise take days to find buried in terabytes of raw FTI data.</p>
+      <div class="solution-outcome">→ From 8-hour reviews to 90-minute debriefs</div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== TAB: MISSION SYSTEMS =================== -->
+<div id="tab-mission" class="tab-section">
+  <div class="section-header">
+    <div class="section-title">
+      <h2>Mission Systems &amp; Electronics</h2>
+      <p>Radar, EW, and C2 systems require rigorous test campaigns at the component, subsystem, and system level. Your test engineers are running HITL infrastructure that generates more data per campaign than legacy tools can handle.</p>
+    </div>
+    <div class="metric-badge">
+      <span class="metric-num">12×</span>
+      <span class="metric-label">faster HITL test<br>review cycles</span>
+    </div>
+  </div>
+
+  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
+  <div class="job-cards">
+    <div class="job-card">
+      <span class="job-dept">Radar Systems</span>
+      <div class="job-title">Radar Systems Test Engineer</div>
+      <div class="job-location">📍 Linthicum, MD</div>
+      <div class="job-desc">Building and running <em>AESA radar HITL test infrastructure</em>. Every campaign generates RF measurement data, sim outputs, and performance logs that live in disconnected systems.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">Electronic Warfare</span>
+      <div class="job-title">EW Systems Test Engineer</div>
+      <div class="job-location">📍 Rolling Meadows, IL</div>
+      <div class="job-desc">Responsible for <em>electronic warfare system characterization and test</em>. Currently rebuilding analysis pipelines from scratch each campaign because test data isn't persisted in a queryable format.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">C2 Systems</span>
+      <div class="job-title">C2 Systems Integration Engineer</div>
+      <div class="job-location">📍 Herndon, VA</div>
+      <div class="job-desc">Evaluating <em>command and control system performance</em> across simulation and live test events. Comparison requires custom scripts that break every time the system configuration changes.</div>
+    </div>
+  </div>
+
+  <div class="section-img">
+    <img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=1400&q=80" alt="Mission Systems" />
+    <div class="img-caption">Every channel from every campaign. Searchable in seconds.</div>
+  </div>
+
+  <div class="solution-header">How Nominal solves it</div>
+  <div class="solution-cards">
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>HITL test data capture and review</h4>
+      <p>Automatically capture RF measurements, sim state, and system outputs from every HITL campaign. Time-align all sources and make the full dataset searchable immediately after test.</p>
+      <div class="solution-outcome">→ HITL review cycles from 2 days to 2 hours</div>
+    </div>
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>Cross-campaign performance trending</h4>
+      <p>Build system performance trends across every test campaign in a shared, version-controlled dataset. Close the loop between simulation predictions and measured results.</p>
+      <div class="solution-outcome">→ Continuous improvement across the test program</div>
+    </div>
+    <div class="solution-card connect">
+      <span class="product-badge badge-connect">Nominal Connect</span>
+      <h4>Multi-site test data sharing</h4>
+      <p>Give every systems engineer — whether in Linthicum, Rolling Meadows, or Herndon — access to a shared, up-to-date test record without analyst bottlenecks.</p>
+      <div class="solution-outcome">→ One source of truth across all Mission Systems sites</div>
+    </div>
+    <div class="solution-card ai">
+      <span class="product-badge badge-ai">Nominal AI</span>
+      <h4>Anomaly flagging in RF and EW data</h4>
+      <p>Automatically surface measurement anomalies, unexpected signatures, or performance regressions across HITL campaigns. Miss nothing. Review everything faster.</p>
+      <div class="solution-outcome">→ Miss nothing. Review everything faster.</div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== TAB: MANUFACTURING =================== -->
+<div id="tab-manufacturing" class="tab-section">
+  <div class="section-header">
+    <div class="section-title">
+      <h2>Manufacturing &amp; Production</h2>
+      <p>Northrop Grumman is a production company with $84B in backlog. With B-21, Sentinel, and space systems all ramping simultaneously, your manufacturing engineers need test data infrastructure that scales with production rates.</p>
+    </div>
+    <div class="metric-badge">
+      <span class="metric-num">3×</span>
+      <span class="metric-label">faster acceptance<br>test sign-off</span>
+    </div>
+  </div>
+
+  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
+  <div class="job-cards">
+    <div class="job-card">
+      <span class="job-dept">Manufacturing Engineering</span>
+      <div class="job-title">Manufacturing Engineer – Sentinel</div>
+      <div class="job-location">📍 Roy, UT</div>
+      <div class="job-desc">Owns <em>manufacturing engineering for Sentinel Stage 2 production</em>. Test data from production acceptance lives in standalone systems disconnected from design-as-built records.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">Production</span>
+      <div class="job-title">Production Test Engineer</div>
+      <div class="job-location">📍 Palmdale, CA</div>
+      <div class="job-desc">Managing <em>B-21 production acceptance test</em> at scale. Acceptance test data for each aircraft is siloed — no cross-unit trending, no automated limit checking.</div>
+    </div>
+    <div class="job-card">
+      <span class="job-dept">Quality &amp; Operations</span>
+      <div class="job-title">Director, Manufacturing Operations</div>
+      <div class="job-location">📍 Redondo Beach, CA</div>
+      <div class="job-desc">Owns <em>manufacturing efficiency and quality across all production programs</em>. Data to support operational decisions is fragmented across program offices and test facilities.</div>
+    </div>
+  </div>
+
+  <div class="section-img">
+    <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1400&q=80" alt="Manufacturing" />
+    <div class="img-caption">Production data that scales with your backlog.</div>
+  </div>
+
+  <div class="solution-header">How Nominal solves it</div>
+  <div class="solution-cards">
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>Production acceptance test automation</h4>
+      <p>Automate pass/fail evaluation for every production acceptance test against defined limits. Generate acceptance reports automatically instead of manually assembling data packages.</p>
+      <div class="solution-outcome">→ Same-day acceptance sign-off at production rates</div>
+    </div>
+    <div class="solution-card core">
+      <span class="product-badge badge-core">Nominal Core</span>
+      <h4>Production fleet trending</h4>
+      <p>Track performance trends across every production unit. Spot early indicators of manufacturing variation before they become systematic defects across the fleet.</p>
+      <div class="solution-outcome">→ Catch production issues at unit 10, not unit 50</div>
+    </div>
+    <div class="solution-card connect">
+      <span class="product-badge badge-connect">Nominal Connect</span>
+      <h4>Manufacturing-to-flight data handoff</h4>
+      <p>Link every production test record to the vehicle it supports. When an anomaly shows up on the flight line, root cause analysis starts with a complete production history.</p>
+      <div class="solution-outcome">→ Root cause in hours, not days</div>
+    </div>
+    <div class="solution-card ai">
+      <span class="product-badge badge-ai">Nominal AI</span>
+      <h4>Operational efficiency insights</h4>
+      <p>Give operations leadership a live view of test cycle times, acceptance rates, and production quality trends. Replace lagging program reviews with real-time operational data.</p>
+      <div class="solution-outcome">→ Data-driven production management at program rates</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <p>Nominal can be running on your test data in days — not months.</p>
+    <strong>Ready to see it live?</strong>
+  </div>
+  <a href="mailto:spencer.russo@nominal.io" class="cta-btn">Book a Demo</a>
+</footer>
+
+<script>
+  function showTab(name, btn) {
+    document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
