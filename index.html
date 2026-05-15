@@ -3,1045 +3,1268 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nominal × Northrop Grumman</title>
+<title>Nominal × Skyryse — Accelerate SkyOS Flight Test</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  /* =============================================
-     NORTHROP GRUMMAN BRAND
-     Black #0a0a0a | White #ffffff
-     Accent: white on dark, black on light
-     Font: Futura-PT → Barlow (geometric, heavy)
-     Style: stark, all-caps, ultra-tracked type
-  ============================================= */
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Futura-PT', 'Barlow', 'Century Gothic', Arial, sans-serif;
-    background: #fff;
-    color: #0a0a0a;
-  }
-
-  /* ── HEADER ─────────────────────────────────── */
-  header {
-    background: #0a0a0a;
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    height: 68px;
-    border-bottom: 1px solid #222;
-  }
-
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  /* NG-style stacked wordmark with corner bracket */
-  .ng-wordmark {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .ng-wordmark-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-
-  .ng-wordmark-text span {
-    font-size: 13px;
-    font-weight: 900;
-    color: #fff;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  /* The NG bracket corner mark */
-  .ng-bracket {
-    width: 18px;
-    height: 22px;
-    position: relative;
-    flex-shrink: 0;
-  }
-
-  .ng-bracket::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 100%; height: 100%;
-    border-top: 2px solid #fff;
-    border-right: 2px solid #fff;
-  }
-
-  .header-divider {
-    width: 1px;
-    height: 28px;
-    background: #333;
-  }
-
-  .header-right-label {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .header-product {
-    font-size: 14px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .header-client-sub {
-    font-size: 10px;
-    font-weight: 600;
-    color: #666;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .compliance-badges {
-    display: flex;
-    gap: 6px;
-  }
-
-  .badge {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 9px;
-    border: 1px solid;
-  }
-
-  .badge-itar     { color: #f59e0b; border-color: rgba(245,158,11,0.4); }
-  .badge-airgapped{ color: #34d399; border-color: rgba(52,211,153,0.4); }
-  .badge-govcloud { color: #60a5fa; border-color: rgba(96,165,250,0.4); }
-  .badge-export   { color: #c084fc; border-color: rgba(192,132,252,0.4); }
-
-  /* ── HERO ────────────────────────────────────── */
-  .hero {
-    background: #0a0a0a;
-    padding: 88px 40px 72px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* NG-style angled line graphic */
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 45%;
-    height: 100%;
-    background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.025) 100%);
-    pointer-events: none;
-  }
-
-  .hero-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #555;
-    margin-bottom: 24px;
-  }
-
-  .hero h1 {
-    font-family: 'Barlow Condensed', 'Futura-PT', 'Century Gothic', Arial, sans-serif;
-    font-size: 72px;
-    font-weight: 900;
-    color: #fff;
-    line-height: 0.95;
-    max-width: 820px;
-    margin-bottom: 28px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .hero h1 span {
-    color: #fff;
-    display: block;
-  }
-
-  .hero-sub {
-    font-size: 16px;
-    color: #777;
-    max-width: 540px;
-    line-height: 1.65;
-    margin-bottom: 60px;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-  }
-
-  .stats-bar {
-    display: flex;
-    gap: 0;
-    flex-wrap: wrap;
-    border-top: 1px solid #1e1e1e;
-    padding-top: 36px;
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    padding-right: 56px;
-    margin-right: 56px;
-    border-right: 1px solid #1e1e1e;
-  }
-
-  .stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-
-  .stat-num {
-    font-family: 'Barlow Condensed', 'Futura-PT', Arial, sans-serif;
-    font-size: 36px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.02em;
-  }
-
-  .stat-num sup { font-size: 18px; }
-
-  .stat-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: #555;
-    margin-top: 6px;
-    text-transform: uppercase;
-  }
-
-  /* ── TAB NAV ──────────────────────────────────── */
-  .tabs-wrapper {
-    position: sticky;
-    top: 68px;
-    z-index: 90;
-    background: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 0 40px;
-    display: flex;
-    overflow-x: auto;
-  }
-
-  .tab-btn {
-    padding: 0 24px;
-    height: 52px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #888;
-    background: none;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: color 0.12s;
-    font-family: inherit;
-    position: relative;
-  }
-
-  .tab-btn:hover { color: #0a0a0a; }
-
-  /* NG-style active tab: rectangular outline box */
-  .tab-btn.active {
-    color: #0a0a0a;
-    box-shadow: inset 0 0 0 1px #0a0a0a;
-  }
-
-  /* ── SECTIONS ─────────────────────────────────── */
-  .tab-section {
-    display: none;
-    padding: 72px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .tab-section.active { display: block; }
-
-  .section-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 56px;
-    gap: 40px;
-  }
-
-  .section-title h2 {
-    font-family: 'Barlow Condensed', 'Futura-PT', Arial, sans-serif;
-    font-size: 42px;
-    font-weight: 900;
-    color: #0a0a0a;
-    margin-bottom: 16px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    line-height: 1;
-  }
-
-  .section-title p {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.7;
-    max-width: 520px;
-    font-weight: 400;
-  }
-
-  .metric-badge {
-    background: #0a0a0a;
-    padding: 24px 32px;
-    text-align: right;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .metric-num {
-    font-family: 'Barlow Condensed', 'Futura-PT', Arial, sans-serif;
-    font-size: 48px;
-    font-weight: 900;
-    color: #fff;
-    display: block;
-    letter-spacing: 0.02em;
-    line-height: 1;
-  }
-
-  .metric-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #555;
-    line-height: 1.6;
-    margin-top: 8px;
-  }
-
-  .subsection-label {
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #aaa;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #e8e8e8;
-  }
-
-  /* ── JOB CARDS ────────────────────────────────── */
-  .job-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: #e0e0e0;
-    margin-bottom: 56px;
-    border: 1px solid #e0e0e0;
-  }
-
-  .job-card {
-    background: #fff;
-    padding: 28px 24px;
-    transition: background 0.12s;
-  }
-
-  .job-card:hover { background: #f8f8f8; }
-
-  .job-dept {
-    display: inline-block;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #fff;
-    background: #0a0a0a;
-    padding: 3px 8px;
-    margin-bottom: 14px;
-  }
-
-  .job-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #0a0a0a;
-    margin-bottom: 6px;
-    line-height: 1.3;
-    letter-spacing: 0.01em;
-  }
-
-  .job-location {
-    font-size: 12px;
-    font-weight: 500;
-    color: #999;
-    margin-bottom: 12px;
-    letter-spacing: 0.04em;
-  }
-
-  .job-desc {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.65;
-  }
-
-  .job-desc em {
-    font-style: normal;
-    color: #0a0a0a;
-    font-weight: 600;
-  }
-
-  /* ── IMAGE SECTION ───────────────────────────── */
-  .section-img {
-    overflow: hidden;
-    margin-bottom: 56px;
-    background: #0a0a0a;
-    position: relative;
-    aspect-ratio: 16/7;
-  }
-
-  .section-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    opacity: 0.5;
-    filter: grayscale(60%);
-  }
-
-  .section-img::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.4) 55%, transparent 100%);
-    z-index: 1;
-  }
-
-  .img-caption {
-    position: absolute;
-    bottom: 32px;
-    left: 36px;
-    color: #fff;
-    font-family: 'Barlow Condensed', 'Futura-PT', Arial, sans-serif;
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    z-index: 2;
-    max-width: 600px;
-    line-height: 1.15;
-  }
-
-  /* ── SOLUTION CARDS ──────────────────────────── */
-  .solution-header {
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #aaa;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #e8e8e8;
-  }
-
-  .solution-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .solution-card {
-    padding: 28px;
-    border: 1px solid #e8e8e8;
-    transition: border-color 0.12s, box-shadow 0.12s;
-  }
-
-  .solution-card:hover {
-    border-color: #0a0a0a;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  }
-
-  .solution-card.core    { background: #fafafa; }
-  .solution-card.connect { background: #fafafa; }
-  .solution-card.ai      { background: #fafafa; }
-
-  .product-badge {
-    display: inline-block;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    margin-bottom: 14px;
-    border: 1px solid;
-  }
-
-  .badge-core    { color: #3730a3; border-color: #c7d2fe; background: #eef2ff; }
-  .badge-connect { color: #166534; border-color: #bbf7d0; background: #f0fdf4; }
-  .badge-ai      { color: #6b21a8; border-color: #e9d5ff; background: #fdf4ff; }
-
-  .solution-card h4 {
-    font-size: 15px;
-    font-weight: 700;
-    color: #0a0a0a;
-    margin-bottom: 10px;
-    letter-spacing: 0.02em;
-  }
-
-  .solution-card p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.65;
-    margin-bottom: 14px;
-  }
-
-  .solution-outcome {
-    font-size: 12px;
-    font-weight: 700;
-    color: #0a0a0a;
-    letter-spacing: 0.03em;
-    padding-top: 12px;
-    border-top: 1px solid #e8e8e8;
-  }
-
-  /* ── FOOTER ──────────────────────────────────── */
-  footer {
-    background: #0a0a0a;
-    padding: 72px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-  }
-
-  .footer-left p {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 10px;
-    line-height: 1.6;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .footer-left strong {
-    font-family: 'Barlow Condensed', 'Futura-PT', Arial, sans-serif;
-    color: #fff;
-    font-size: 36px;
-    font-weight: 900;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    display: block;
-  }
-
-  /* Ghost button — matches NG's "Learn More ›" style */
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: transparent;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 16px 32px;
-    border: 1px solid #fff;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background 0.12s, color 0.12s;
-    font-family: inherit;
-  }
-
-  .cta-btn::after { content: '›'; font-size: 18px; font-weight: 400; }
-  .cta-btn:hover  { background: #fff; color: #0a0a0a; }
-
-  /* ── RESPONSIVE ──────────────────────────────── */
-  @media (max-width: 900px) {
-    header { padding: 0 20px; }
-    .compliance-badges { display: none; }
-    .hero { padding: 56px 20px 48px; }
-    .hero h1 { font-size: 48px; }
-    .tabs-wrapper { padding: 0 20px; top: 68px; }
-    .tab-section { padding: 48px 20px; }
-    .section-header { flex-direction: column; }
-    .job-cards { grid-template-columns: 1fr; }
-    .solution-cards { grid-template-columns: 1fr; }
-    footer { flex-direction: column; padding: 48px 20px; text-align: center; }
-  }
+/* =============================================
+   NOMINAL BRAND
+   Navy #001023 | Gold #C8A983 | Dark #1C1B1B
+   Font: Inter — clean, technical, modern
+   Style: silicon-valley aerospace precision
+   ============================================= */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Light theme — Skyryse-official aesthetic */
+  --bg:         #FFFFFF;
+  --bg-soft:    #F7F7F5;
+  --bg-muted:   #EFEEEA;
+  --ink:        #0A0A0A;
+  --ink-soft:   #1F1F1F;
+  --ink-mid:    #4A4A4A;
+  --ink-dim:    #8A8A8A;
+  --ink-faint:  #B8B8B8;
+  --line:       rgba(10,10,10,0.08);
+  --line-soft:  rgba(10,10,10,0.04);
+  --card-bg:    #FFFFFF;
+
+  /* Accent — darker gold for legibility on white */
+  --gold:       #A88E68;
+  --gold-deep:  #876F4D;
+  --gold-soft:  rgba(168,142,104,0.10);
+  --gold-line:  rgba(168,142,104,0.22);
+
+  /* Dark surface (kept for product mock + dark sections) */
+  --dark:       #0A0A0A;
+  --dark-2:     #141414;
+  --dark-line:  rgba(255,255,255,0.08);
+
+  /* Legacy alias names — keep so existing rules still work */
+  --navy:       #FFFFFF;
+  --navy-mid:   #F7F7F5;
+  --navy-light: #EFEEEA;
+  --white:      #0A0A0A;
+  --gray-300:   #4A4A4A;
+  --gray-400:   #6B6B6B;
+  --gray-500:   #8A8A8A;
+  --gray-600:   #B8B8B8;
+  --red:        #B91C1C;
+  --border:     rgba(10,10,10,0.08);
+  --gold-dim:   rgba(168,142,104,0.10);
+  --gold-border:rgba(168,142,104,0.22);
+  --gold-bright:#876F4D;
+
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Aircraft-style corner bracket utility */
+.brackets { position: relative; }
+.brackets::before, .brackets::after {
+  content: '';
+  position: absolute;
+  width: 14px; height: 14px;
+  border-color: var(--gold);
+  pointer-events: none;
+}
+.brackets::before { top: -6px; left: -6px; border-top: 1px solid; border-left: 1px solid; }
+.brackets::after  { bottom: -6px; right: -6px; border-bottom: 1px solid; border-right: 1px solid; }
+
+.dataplate {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.dataplate .dim { color: var(--gray-500); }
+.dataplate .sep { color: var(--gray-600); margin: 0 8px; }
+
+/* ── HEADER ── */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 1px solid var(--line);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+}
+
+.header-wordmark { display: flex; align-items: center; gap: 14px; }
+
+.wm-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.wm-mark:hover { color: var(--gold-deep); }
+.wm-icon { display: inline-block; flex-shrink: 0; }
+.wm-x { font-family: var(--font-display); font-size: 14px; font-weight: 300; color: var(--ink-dim); }
+.wm-skyryse { font-family: var(--font-display); font-size: 15px; font-weight: 400; letter-spacing: -0.015em; color: var(--ink); }
+.wm-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  border-left: 1px solid var(--line);
+  padding-left: 14px;
+  margin-left: 4px;
+}
+@media (max-width: 700px) { .wm-tag { display: none; } }
+
+.header-meta { display: flex; align-items: center; gap: 20px; }
+.header-meta-spec {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header-meta-spec .live-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@media (max-width: 900px) { .header-meta-spec { display: none; } }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.header-cta {
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  padding: 9px 18px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: none;
+}
+.header-cta::after { content: '→'; font-size: 14px; letter-spacing: 0; }
+.header-cta:hover { background: var(--gold-deep); transform: translateY(-1px); }
+
+/* ── TICKER ── */
+.ticker {
+  margin-top: 64px;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 11px 0;
+  overflow: hidden;
+  position: relative;
+}
+.ticker::before, .ticker::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.ticker::before { left: 0; background: linear-gradient(90deg, var(--bg-soft), transparent); }
+.ticker::after  { right: 0; background: linear-gradient(-90deg, var(--bg-soft), transparent); }
+.ticker-track {
+  display: flex;
+  gap: 64px;
+  white-space: nowrap;
+  width: max-content;
+  animation: ticker-scroll 38s linear infinite;
+}
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-item {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.ticker-item .ti-tag { color: var(--gold-deep); font-weight: 600; letter-spacing: 0.1em; }
+.ticker-item .ti-num { color: var(--ink); font-weight: 700; }
+.ticker-item .ti-sep { color: var(--ink-faint); font-weight: 300; }
+.ticker-item .ti-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); display: inline-block; }
+
+/* ── HERO ── */
+#hero {
+  min-height: calc(100vh - 64px);
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+  background: var(--bg);
+  padding: 140px 80px 100px;
+}
+
+#hero-canvas { display: none; }
+
+.hero-content { position: relative; z-index: 4; max-width: 640px; }
+
+.hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+.hero-eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
+.hero-eyebrow-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--ink-mid);
+  text-transform: uppercase;
+}
+
+#hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.2vw, 72px);
+  font-weight: 500;
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ink-mid);
+  max-width: 540px;
+  margin-bottom: 40px;
+}
+
+.hero-cta-row { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+
+.hero-photo-panel {
+  position: relative;
+  height: clamp(380px, 60vh, 580px);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+.hero-photo-panel img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 50%;
+  display: block;
+  animation: hero-zoom 30s ease-out infinite alternate;
+}
+@keyframes hero-zoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
+}
+
+.hero-plate {
+  position: absolute;
+  bottom: 18px; left: 20px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 8px 14px;
+  border-radius: 100px;
+}
+.hero-plate-tick { width: 18px; height: 1px; background: var(--gold); }
+.hero-plate-spec {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--ink-mid);
+  text-transform: uppercase;
+}
+.hero-plate-spec b { color: var(--ink); font-weight: 600; }
+
+.instr {
+  position: absolute;
+  top: 24px; right: 24px;
+  z-index: 5;
+  width: 240px;
+  background: rgba(255,255,255,0.94);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(10,10,10,0.10), 0 2px 6px rgba(10,10,10,0.04);
+}
+.instr-header { display: flex; align-items: center; justify-content: space-between; padding: 9px 12px; background: var(--bg-soft); border-bottom: 1px solid var(--line); }
+.instr-id { font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.12em; color: var(--ink); text-transform: uppercase; }
+.instr-status {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.instr-status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); animation: pulse-dot 1.6s ease-in-out infinite; }
+.instr-body { padding: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+.instr-cell-label { font-family: var(--font-mono); font-size: 8.5px; font-weight: 500; letter-spacing: 0.1em; color: var(--ink-dim); text-transform: uppercase; margin-bottom: 3px; }
+.instr-cell-val { font-family: var(--font-mono); font-size: 17px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; line-height: 1; }
+.instr-cell-val .unit { font-size: 9px; font-weight: 500; color: var(--ink-dim); margin-left: 2px; letter-spacing: 0.05em; }
+.instr-trace { grid-column: 1 / -1; border-top: 1px dashed var(--line); padding-top: 10px; margin-top: 4px; }
+.instr-trace-label { font-family: var(--font-mono); font-size: 8.5px; font-weight: 500; letter-spacing: 0.1em; color: var(--ink-dim); text-transform: uppercase; margin-bottom: 4px; display: flex; justify-content: space-between; }
+.instr-trace-label .gold { color: var(--gold-deep); }
+#instr-canvas { display: block; width: 100%; height: 36px; }
+.instr-footer { padding: 8px 12px; border-top: 1px solid var(--line); background: var(--bg-soft); font-family: var(--font-mono); font-size: 8.5px; font-weight: 500; letter-spacing: 0.1em; color: var(--ink-dim); text-transform: uppercase; display: flex; justify-content: space-between; }
+.instr-footer .live { color: var(--gold-deep); }
+
+@media (max-width: 1100px) { #hero { grid-template-columns: 1fr; gap: 48px; padding: 110px 48px 80px; } .hero-photo-panel { height: 420px; } }
+@media (max-width: 700px) { #hero { padding: 120px 24px 64px; } .hero-photo-panel { height: 320px; } .instr { width: 200px; top: 14px; right: 14px; } }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 13px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: -0.005em;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--gold-deep); transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+.btn-ghost::after { content: ''; position: absolute; left: 0; right: 14px; bottom: -3px; height: 1px; background: var(--ink); transform-origin: left; transform: scaleX(0); transition: transform 0.3s ease; }
+.btn-ghost:hover { color: var(--gold-deep); }
+.btn-ghost:hover::after { transform: scaleX(1); background: var(--gold-deep); }
+
+/* ── SECTION BASE ── */
+section { padding: 96px 80px; }
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+.section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); display: inline-block; }
+
+.section-title { font-family: var(--font-display); font-size: clamp(34px, 4.2vw, 60px); font-weight: 500; line-height: 1.05; letter-spacing: -0.032em; color: var(--ink); margin-bottom: 24px; max-width: 880px; }
+.section-title em { font-style: normal; font-weight: 500; color: var(--gold-deep); }
+.section-title .light { font-weight: 400; color: var(--ink-mid); }
+
+.section-sub { font-family: var(--font-body); font-size: 17px; line-height: 1.6; color: var(--ink-mid); max-width: 620px; margin-bottom: 64px; }
+
+/* ── LOGO STRIP ── */
+#logos { background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 36px 80px; }
+.logos-inner { display: flex; align-items: center; gap: 56px; flex-wrap: wrap; }
+.logos-eyebrow { font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid); flex-shrink: 0; display: flex; align-items: center; gap: 12px; border-right: 1px solid var(--line); padding-right: 32px; }
+.logos-eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--gold); }
+.logos-row { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; flex: 1; }
+.logo-item { height: 44px; display: flex; align-items: center; opacity: 0.55; transition: opacity 0.3s; filter: grayscale(1) contrast(1.15); }
+.logo-item:hover { opacity: 0.95; }
+.logo-item img { max-height: 100%; max-width: 180px; width: auto; height: auto; object-fit: contain; display: block; }
+.logos-tagline {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-mid);
+  letter-spacing: -0.005em;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+  width: 100%;
+  flex-basis: 100%;
+}
+@media (max-width: 900px) { #logos { padding: 28px 28px; } .logos-inner { gap: 24px; } .logos-eyebrow { border-right: none; border-bottom: 1px solid var(--line); padding-right: 0; padding-bottom: 14px; width: 100%; } .logos-row { gap: 28px; } }
+
+/* ── MATRIX ── */
+#matrix {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+.matrix-body {
+  max-width: 760px;
+  margin-top: 12px;
+}
+.matrix-para {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink-mid);
+  margin-bottom: 24px;
+}
+.matrix-para:last-of-type {
+  margin-bottom: 36px;
+}
+.matrix-pull {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  max-width: 720px;
+}
+@media (max-width: 700px) {
+  .matrix-para { font-size: 16px; }
+}
+
+/* ── PROOF ── */
+#proof { background: var(--bg); position: relative; }
+
+.stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-bottom: 64px; margin-top: 8px; position: relative; }
+.stat-block { padding: 36px 36px 36px 0; position: relative; }
+.stat-block + .stat-block { padding-left: 36px; }
+.stat-block + .stat-block::before { content: ''; position: absolute; top: 30px; bottom: 30px; left: 0; width: 1px; background: var(--line); }
+.stat-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+.stat-meta-tick { width: 16px; height: 1px; background: var(--gold); }
+.stat-meta-label { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); }
+.stat-num { font-family: var(--font-display); font-size: clamp(56px, 8vw, 124px); font-weight: 500; letter-spacing: -0.045em; color: var(--ink); line-height: 0.92; margin-bottom: 18px; font-variant-numeric: tabular-nums; display: flex; align-items: baseline; gap: 4px; }
+.stat-num .stat-prefix, .stat-num .stat-suffix { font-size: 0.36em; font-weight: 500; color: var(--gold-deep); letter-spacing: 0; text-transform: uppercase; font-family: var(--font-mono); align-self: center; position: relative; top: -0.4em; }
+.stat-num .stat-x { color: var(--gold-deep); font-weight: 400; font-style: italic; margin-left: 0.05em; }
+.stat-headline { font-family: var(--font-display); font-size: 21px; font-weight: 500; color: var(--ink); line-height: 1.35; margin-bottom: 8px; max-width: 280px; letter-spacing: -0.012em; }
+.stat-source { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); }
+
+.quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 8px; }
+.quote-card { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 6px; padding: 36px 36px 30px; position: relative; transition: background 0.4s, transform 0.4s; }
+.quote-card:hover { background: var(--bg); border-color: rgba(10,10,10,0.14); transform: translateY(-2px); }
+.quote-mark { font-family: var(--font-display); font-size: 56px; line-height: 0; color: var(--gold-deep); display: block; height: 18px; margin-bottom: 12px; }
+.quote-text { font-family: var(--font-display); font-size: 19px; font-weight: 400; font-style: normal; line-height: 1.5; color: var(--ink); margin-bottom: 22px; letter-spacing: -0.015em; }
+.quote-attr { font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); border-top: 1px solid var(--line); padding-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+.quote-attr .org { color: var(--ink); font-weight: 600; }
+
+/* ── PLATFORM ── */
+#platform { background: var(--bg-soft); position: relative; overflow: hidden; }
+
+.workbook-stack { display: flex; flex-direction: column; gap: 56px; margin-top: 44px; }
+.workbook-frame { position: relative; }
+.workbook-chrome { background: #070e1a; border: 1px solid rgba(0,0,0,0.08); border-radius: 10px; overflow: hidden; box-shadow: 0 30px 60px rgba(10,10,10,0.16), 0 4px 16px rgba(10,10,10,0.04); }
+.workbook-bar { background: #0c1520; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 12px 18px; display: flex; align-items: center; gap: 14px; }
+.wb-dots { display: flex; gap: 6px; }
+.wb-dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-r { background: #FF5F57; } .dot-y { background: #FEBC2E; } .dot-g { background: #28C840; }
+.wb-title { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.55); margin-left: 6px; font-family: var(--font-mono); letter-spacing: 0.02em; }
+.wb-live { margin-left: auto; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #C8A983; display: flex; align-items: center; gap: 6px; }
+.wb-live::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; animation: pulse-dot 2s infinite; }
+.workbook-chrome img { display: block; width: 100%; height: auto; background: #070e1a; }
+
+.workbook-caption { display: flex; align-items: flex-start; gap: 16px; margin-top: 20px; padding-left: 4px; }
+.wbc-tick { flex-shrink: 0; margin-top: 9px; width: 16px; height: 1px; background: var(--gold); }
+.wbc-text { flex: 1; }
+.wbc-label { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 4px; }
+.wbc-headline { font-family: var(--font-display); font-size: 16px; font-weight: 500; color: var(--ink); letter-spacing: -0.015em; line-height: 1.4; max-width: 640px; }
+
+/* ── ROTOR WORKBOOK ── */
+.rotor-workbook {
+  display: grid;
+  grid-template-columns: 180px 1fr 180px;
+  background: #070e1a;
+  min-height: 360px;
+}
+.rw-rail, .rw-evidence {
+  background: #0c1520;
+  padding: 16px 14px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.75);
+}
+.rw-evidence {
+  border-right: none;
+  border-left: 1px solid rgba(255,255,255,0.06);
+}
+.rw-group { margin-bottom: 14px; }
+.rw-group:last-child { margin-bottom: 0; }
+.rw-group-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(200,169,131,0.85);
+  margin-bottom: 8px;
+}
+.rw-ch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  color: rgba(255,255,255,0.55);
+  font-size: 10.5px;
+  letter-spacing: 0.01em;
+}
+.rw-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.rw-flag { color: #FCA5A5; }
+.rw-chart {
+  padding: 12px;
+  position: relative;
+  min-height: 320px;
+}
+.rw-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.rw-ev-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(200,169,131,0.85);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.rw-ev-row { margin-bottom: 12px; }
+.rw-ev-key {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 3px;
+}
+.rw-ev-val { font-size: 10.5px; color: rgba(255,255,255,0.85); }
+.rw-ok { color: #81C784; }
+.rw-pending { color: #FFD54F; }
+.rw-flag-text { color: #FCA5A5; }
+@media (max-width: 900px) {
+  .rotor-workbook { grid-template-columns: 1fr; }
+  .rw-rail, .rw-evidence { border-right: none; border-left: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .rw-chart { min-height: 240px; }
+}
+
+/* ── OUTCOMES ── */
+.outcomes { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.outcome { padding: 0 28px; position: relative; }
+.outcome:first-child { padding-left: 4px; }
+.outcome + .outcome::before { content: ''; position: absolute; top: 4px; bottom: 4px; left: 0; width: 1px; background: var(--line); }
+.outcome-meta { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.outcome-meta::before { content: ''; width: 14px; height: 1px; background: var(--gold); }
+.outcome-text { font-family: var(--font-display); font-size: 19px; font-weight: 500; line-height: 1.3; color: var(--ink); letter-spacing: -0.02em; }
+@media (max-width: 900px) { .outcomes { grid-template-columns: 1fr; gap: 20px; } .outcome { padding: 20px 0 0; } .outcome:first-child { padding-top: 0; padding-left: 0; } .outcome + .outcome::before { left: 0; right: 0; top: 0; bottom: auto; width: auto; height: 1px; } }
+
+/* ── QUESTIONS ── */
+#questions {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+}
+.q-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.q-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 28px 28px 26px;
+  transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
+}
+.q-card:hover {
+  border-color: rgba(10,10,10,0.16);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(10,10,10,0.05);
+}
+.q-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 16px;
+}
+.q-question {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.35;
+  letter-spacing: -0.018em;
+  margin-bottom: 14px;
+}
+.q-answer {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-mid);
+}
+@media (max-width: 900px) {
+  .q-grid { grid-template-columns: 1fr; }
+}
+
+/* ── TEAM ── */
+#team { background: var(--bg); position: relative; }
+.team-header { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: end; margin-bottom: 56px; }
+.team-header-left { border-top: 1px solid var(--ink); padding-top: 14px; }
+.team-header-right { border-top: 1px solid var(--ink); padding-top: 14px; }
+.team-eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid); }
+.team-title { font-family: var(--font-display); font-size: clamp(30px, 3.4vw, 44px); font-weight: 500; line-height: 1.05; letter-spacing: -0.028em; color: var(--ink); margin-bottom: 14px; }
+.team-sub { font-family: var(--font-body); font-size: 15.5px; line-height: 1.55; color: var(--ink-mid); max-width: 540px; }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.team-card { position: relative; }
+.team-photo-wrap { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: var(--bg-soft); border-radius: 4px; margin-bottom: 14px; }
+.team-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.team-card:hover .team-photo-wrap img { transform: scale(1.03); }
+.team-name { font-family: var(--font-display); font-size: 18px; font-weight: 500; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 2px; }
+.team-role { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 12px; }
+.team-prior { font-family: var(--font-body); font-size: 13px; color: var(--ink-mid); line-height: 1.4; }
+.team-prior b { color: var(--ink); font-weight: 500; }
+.team-cta-row { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.team-cta-text { font-family: var(--font-body); font-size: 14.5px; color: var(--ink-mid); max-width: 480px; }
+@media (max-width: 900px) { .team-header { grid-template-columns: 1fr; gap: 24px; } .team-grid { grid-template-columns: 1fr; } }
+
+/* ── CTA ── */
+#cta { background: var(--bg); text-align: center; padding: 120px 80px; position: relative; overflow: hidden; border-top: 1px solid var(--line); }
+.cta-headline { font-family: var(--font-display); font-size: clamp(34px, 4.4vw, 60px); font-weight: 500; line-height: 1.05; letter-spacing: -0.032em; max-width: 880px; margin: 0 auto 24px; color: var(--ink); }
+.cta-headline em { font-style: normal; font-weight: 500; color: var(--gold-deep); }
+.cta-body { font-family: var(--font-body); font-size: 17px; color: var(--ink-mid); max-width: 580px; margin: 0 auto 40px; line-height: 1.6; }
+.cta-signature { max-width: 580px; margin: 0 auto 36px; padding: 28px 0 0; text-align: left; display: flex; align-items: flex-start; gap: 18px; }
+.cta-sig-mark { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: var(--bg-soft); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.cta-sig-text { flex: 1; }
+.cta-sig-eyebrow { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.cta-sig-eyebrow::before { content: ''; width: 14px; height: 1px; background: var(--gold); }
+.cta-sig-body { font-family: var(--font-display); font-size: 16px; font-weight: 400; line-height: 1.5; color: var(--ink); letter-spacing: -0.012em; }
+.cta-sig-body a { color: var(--ink); border-bottom: 1px solid var(--gold-line); text-decoration: none; padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
+.cta-sig-body a:hover { color: var(--gold-deep); border-color: var(--gold-deep); }
+.cta-expect { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 720px; margin: 0 auto 44px; padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: left; }
+.cta-expect-item { padding: 0 24px; position: relative; }
+.cta-expect-item + .cta-expect-item { border-left: 1px solid var(--line); }
+.cta-expect-num { font-family: var(--font-display); font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 4px; line-height: 1; }
+.cta-expect-text { font-family: var(--font-body); font-size: 13.5px; line-height: 1.45; color: var(--ink-mid); }
+@media (max-width: 700px) { .cta-expect { grid-template-columns: 1fr; gap: 18px; padding: 20px 0; text-align: center; } .cta-expect-item { padding: 0; } .cta-expect-item + .cta-expect-item { border-left: none; border-top: 1px solid var(--line-soft); padding-top: 18px; } }
+.cta-email { margin-top: 18px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--ink-dim); }
+.cta-email a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
+.cta-email a:hover { color: var(--gold-deep); border-color: var(--gold-deep); }
+
+/* ── FOOTER ── */
+footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
+.footer-brand { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); }
+.footer-copy { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--ink-dim); }
+.footer-copy a { color: var(--ink-mid); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
+.footer-copy a:hover { color: var(--gold-deep); border-color: var(--gold-deep); }
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.stagger > * { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.stagger.visible > *:nth-child(1) { transition-delay: 0.00s; opacity:1; transform:none; }
+.stagger.visible > *:nth-child(2) { transition-delay: 0.08s; opacity:1; transform:none; }
+.stagger.visible > *:nth-child(3) { transition-delay: 0.16s; opacity:1; transform:none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1280px) { .instr { width: 240px; right: 40px; top: 100px; } .hero-plate { left: 40px; } }
+@media (max-width: 1080px) { .instr { display: none; } #hero { padding: 100px 60px 70px; } }
+@media (max-width: 900px) {
+  section { padding: 64px 28px; }
+  header { padding: 0 24px; }
+  #hero { padding: 90px 28px 64px; min-height: auto; }
+  #cta { padding: 80px 28px; }
+  footer { padding: 24px 28px; flex-direction: column; gap: 10px; text-align: center; }
+  .hero-plate { left: 28px; bottom: 14px; }
+  .stat-row { grid-template-columns: 1fr; }
+  .stat-block + .stat-block { padding-left: 0; padding-top: 30px; }
+  .stat-block + .stat-block::before { top: 0; left: 0; right: 0; width: auto; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+  .quote-grid { grid-template-columns: 1fr; }
+  #hero h1 { font-size: clamp(40px, 10vw, 56px); }
+}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
-  <div class="header-left">
-    <!-- NG stacked wordmark with bracket mark -->
-    <div class="ng-wordmark">
-      <div class="ng-wordmark-text">
-        <span>Northrop</span>
-        <span>Grumman</span>
-      </div>
-      <div class="ng-bracket"></div>
-    </div>
-    <div class="header-divider"></div>
-    <div class="header-right-label">
-      <span class="header-product">Nominal</span>
-      <span class="header-client-sub">Test Data Platform</span>
-    </div>
+  <div class="header-wordmark">
+    <a href="https://nominal.io" target="_blank" rel="noopener" class="wm-mark">
+      <svg class="wm-icon" width="22" height="11" viewBox="0 0 44 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M44 9 L23.6 7.6 L22 0 L20.4 7.6 L0 9 L20.4 10.4 L22 18 L23.6 10.4 Z" fill="currentColor"/>
+      </svg>
+      Nominal
+    </a>
+    <span class="wm-x">&times;</span>
+    <span class="wm-skyryse">Skyryse</span>
+    <span class="wm-tag">Flight Test Brief</span>
   </div>
-
-  <div class="compliance-badges">
-    <span class="badge badge-itar">ITAR Ready</span>
-    <span class="badge badge-airgapped">Air-Gapped</span>
-    <span class="badge badge-govcloud">AWS GovCloud</span>
-    <span class="badge badge-export">Export Control</span>
+  <div class="header-meta">
+    <span class="header-meta-spec"><span class="live-dot"></span>For internal review</span>
+    <a href="#cta" class="header-cta">Book a walkthrough</a>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-label">Nominal × Northrop Grumman</div>
-  <h1>Stop losing test campaigns<br>to <span>data fragmentation.</span></h1>
-  <p class="hero-sub">Northrop Grumman is simultaneously executing B-21, Sentinel, HALO, and next-generation mission systems. The engineers you're hiring need test data infrastructure that keeps up with the portfolio.</p>
-  <div class="stats-bar">
-    <div class="stat">
-      <span class="stat-num">5,000<sup>+</sup></span>
-      <span class="stat-label">Open Engineering Roles</span>
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">Nominal &times; Skyryse</span>
     </div>
-    <div class="stat">
-      <span class="stat-num">$84B</span>
-      <span class="stat-label">Funded Backlog</span>
+    <h1>You're not building for three airframes.<br><span style="font-weight:400; color:var(--ink-mid);">You're building the operating system for flight.</span></h1>
+    <p class="hero-sub">
+      SkyOS is the universal layer &mdash; R66 today, Cirrus and Black Hawk in trail, every retrofit and Skyryse Defense airframe after that, 10&#8315;&#8313; across all of it. The test record has to compound the same way the software does, or the thesis caps at the first STC. Nominal already runs the data platform for Shield AI, Anduril, and the Air Force Test Center across Edwards, Eglin, and Arnold.
+    </p>
+    <div class="hero-cta-row">
+      <a href="#cta" class="btn-primary">
+        Book a 30-minute walkthrough
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M7 4l3.5 2.5L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#solution" class="btn-ghost">See how it fits SkyOS →</a>
     </div>
-    <div class="stat">
-      <span class="stat-num">$16.7B</span>
-      <span class="stat-label">Annual Revenue</span>
+  </div>
+
+  <div class="hero-photo-panel">
+    <img src="images/skyryse-hero.png" alt="Skyryse R66 in flight — SkyOS-equipped">
+    <div class="instr" aria-hidden="true">
+      <div class="instr-header">
+        <span class="instr-id">CH-04 · Live</span>
+        <span class="instr-status">Stream OK</span>
+      </div>
+      <div class="instr-body">
+        <div><div class="instr-cell-label">Pitch Rate</div><div class="instr-cell-val" data-instr="pitch">+1.42<span class="unit">°/s</span></div></div>
+        <div><div class="instr-cell-label">Roll Rate</div><div class="instr-cell-val" data-instr="roll">−0.08<span class="unit">°/s</span></div></div>
+        <div><div class="instr-cell-label">Collective</div><div class="instr-cell-val" data-instr="coll">61.4<span class="unit">%</span></div></div>
+        <div><div class="instr-cell-label">Airspeed</div><div class="instr-cell-val" data-instr="airspeed">87<span class="unit">kt</span></div></div>
+        <div class="instr-trace">
+          <div class="instr-trace-label"><span>Pitch · 200Hz</span><span class="gold">847 params</span></div>
+          <canvas id="instr-canvas"></canvas>
+        </div>
+      </div>
+      <div class="instr-footer">
+        <span>T+ <span data-instr="tplus">01:24.6</span></span>
+        <span class="live">Recording</span>
+      </div>
     </div>
-    <div class="stat">
-      <span class="stat-num">5</span>
-      <span class="stat-label">Major Programs</span>
+    <div class="hero-plate">
+      <div class="hero-plate-tick"></div>
+      <span class="hero-plate-spec">Skyryse One &middot; <b>R66 Flight Test</b></span>
     </div>
   </div>
 </section>
 
-<!-- TAB NAV -->
-<div class="tabs-wrapper">
-  <button class="tab-btn active" onclick="showTab('propulsion', this)">Propulsion &amp; Test</button>
-  <button class="tab-btn" onclick="showTab('systems', this)">Systems Integration</button>
-  <button class="tab-btn" onclick="showTab('space', this)">Space Systems</button>
-  <button class="tab-btn" onclick="showTab('aero', this)">Aeronautics</button>
-  <button class="tab-btn" onclick="showTab('mission', this)">Mission Systems</button>
-  <button class="tab-btn" onclick="showTab('manufacturing', this)">Manufacturing</button>
-</div>
-
-<!-- =================== TAB: PROPULSION =================== -->
-<div id="tab-propulsion" class="tab-section active">
-  <div class="section-header">
-    <div class="section-title">
-      <h2>Propulsion &amp; Test Engineering</h2>
-      <p>Sentinel ICBM propulsion qualification. Tactical missile motor testing. Your propulsion test teams are generating terabytes across Bacchus, Promontory, and Allegany — without a unified data layer.</p>
+<!-- LOGO STRIP -->
+<section id="logos">
+  <div class="logos-inner">
+    <div class="logos-eyebrow">Trusted by</div>
+    <div class="logos-row">
+      <div class="logo-item"><img src="images/logos/anduril.png" alt="Anduril"></div>
+      <div class="logo-item"><img src="images/logos/hermeus.png" alt="Hermeus"></div>
+      <div class="logo-item"><img src="images/logos/scout-ai.png" alt="Shield AI"></div>
     </div>
-    <div class="metric-badge">
-      <span class="metric-num">10×</span>
-      <span class="metric-label">faster test-to-decision<br>across propulsion campaigns</span>
+    <div class="logos-tagline">
+      One platform across every airframe &mdash; the same problem SkyOS is solving for aviation.
+    </div>
+  </div>
+</section>
+
+<!-- MATRIX -->
+<section id="matrix">
+  <div class="section-eyebrow reveal">The problem we built for / 01</div>
+  <h2 class="section-title reveal">The test matrix is combinatorial.<br><span class="light">The test loop is recurring.</span></h2>
+
+  <div class="matrix-body">
+    <p class="matrix-para reveal">
+      SkyOS is one operating system across R66, Cirrus SR22, and UH-60 Black Hawk &mdash; with fixed-wing next. The same deterministic logic tree. The same triply-redundant hardware. The same pilot's operating handbook encoded in code. The hardware and software transfer cleanly between airframes. The test artifacts should too.
+    </p>
+    <p class="matrix-para reveal">
+      Every airframe inherits the full operating handbook. Every failure mode has to be flown, captured, and proved deterministic. Every handling qualities tune has to be re-validated. Every for-credit flight produces evidence that has to survive FAA review. And every airframe you add multiplies the matrix.
+    </p>
+    <p class="matrix-pull reveal">
+      The platform you analyze that data on decides whether each new STC starts from scratch &mdash; or from the last one.
+    </p>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof">
+  <div class="section-eyebrow reveal">Track record / 02</div>
+  <h2 class="section-title reveal">Built for programs where the test record is the asset.</h2>
+  <p class="section-sub reveal">From autonomous combat aircraft to the Air Force's premier test ranges &mdash; Nominal is the platform underneath the most demanding flight test programs in aerospace today.</p>
+
+  <div class="stat-row stagger">
+    <div class="stat-block">
+      <div class="stat-meta"><div class="stat-meta-tick"></div><span class="stat-meta-label">CASE 01</span></div>
+      <div class="stat-num"><span data-count-num>40</span><span class="stat-x">×</span></div>
+      <div class="stat-headline">Faster telemetry processing than vendor solutions</div>
+      <div class="stat-source">Anduril &middot; 300+ engineers, same context</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-meta"><div class="stat-meta-tick"></div><span class="stat-meta-label">CASE 02</span></div>
+      <div class="stat-num" style="font-size: clamp(40px, 5.4vw, 84px); line-height:0.95; flex-direction:column; align-items:flex-start; gap:2px;">
+        <span style="font-family:var(--font-display); font-weight:300; color:var(--gray-300); font-size:0.62em;">Days <span style="color:var(--gold); font-style:italic; font-weight:400;">to</span></span>
+        <span style="display:flex; align-items:baseline; gap:4px;"><span data-count-num>5</span>–<span data-count-num>10</span><span class="stat-prefix" style="position:static; align-self:flex-end; padding-bottom:0.3em;">MIN</span></span>
+      </div>
+      <div class="stat-headline" style="margin-top: 12px;">Analysis turnaround per flight</div>
+      <div class="stat-source">Shield AI &middot; F-16, V-BAT, MQ-20</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-meta"><div class="stat-meta-tick"></div><span class="stat-meta-label">CASE 03</span></div>
+      <div class="stat-num"><span class="stat-prefix" style="position:static; padding-bottom:0.3em;">$</span><span data-count-num>53</span><span class="stat-x" style="font-style:normal;">M</span></div>
+      <div class="stat-headline">Sole-source IDIQ across 3 test facilities</div>
+      <div class="stat-source">USAF Test Center &middot; Edwards · Eglin · Arnold</div>
     </div>
   </div>
 
-  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
-  <div class="job-cards">
-    <div class="job-card">
-      <span class="job-dept">Propulsion</span>
-      <div class="job-title">Propulsion Test Engineer – Sentinel</div>
-      <div class="job-location">📍 Bacchus, UT</div>
-      <div class="job-desc">Responsible for <em>motor qualification and static fire campaigns</em> for Sentinel Stage 1. Currently requires manual correlation between DAQ systems, chamber pressure sensors, and stress data across test events.</div>
+  <div class="quote-grid">
+    <div class="quote-card reveal">
+      <span class="quote-mark">&ldquo;</span>
+      <p class="quote-text">Speed of iteration is what matters in fielding new capability. Nominal has helped us deliver on both speed and validation.</p>
+      <div class="quote-attr"><span>Armor Harris &middot; SVP Aircraft</span><span class="org">Shield AI</span></div>
     </div>
-    <div class="job-card">
-      <span class="job-dept">Data &amp; Analytics</span>
-      <div class="job-title">Test Data Systems Engineer</div>
-      <div class="job-location">📍 Promontory, UT</div>
-      <div class="job-desc">Owns <em>sensor data pipelines</em> from test stand instrumentation. Building custom tooling from scratch to make propulsion test data accessible across facilities in real time.</div>
+    <div class="quote-card reveal">
+      <span class="quote-mark">&ldquo;</span>
+      <p class="quote-text">Data loads forty times faster, analysis is instantaneous, and the entire organization sees the same context. That combination of speed and shared visibility is mission-critical.</p>
+      <div class="quote-attr"><span>Norris Tie &middot; Business Operations</span><span class="org">Anduril</span></div>
     </div>
-    <div class="job-card">
-      <span class="job-dept">Propulsion</span>
-      <div class="job-title">Sr. Propulsion Systems Engineer</div>
-      <div class="job-location">📍 Allegany Ballistics Lab, WV</div>
-      <div class="job-desc">Responsible for <em>solid rocket motor acceptance testing</em> across tactical programs. Tracking results across dozens of test events per year with no automated regression or cross-program comparison.</div>
+  </div>
+</section>
+
+<!-- PLATFORM -->
+<section id="platform">
+  <div class="section-eyebrow reveal">How it fits / 03</div>
+  <h2 class="section-title reveal">From HIL to flight. On one timeline.</h2>
+  <p class="section-sub reveal">Same workbook handles dSpace HIL output, Simulink model predictions, MATLAB scripts, Python pipelines, and live flight telemetry. One source of truth as you go from R66 to Black Hawk to fixed-wing &mdash; and whatever comes next.</p>
+
+  <div class="workbook-stack">
+    <div class="workbook-frame reveal">
+      <div class="workbook-chrome">
+        <div class="workbook-bar">
+          <div class="wb-dots">
+            <div class="wb-dot dot-r"></div>
+            <div class="wb-dot dot-y"></div>
+            <div class="wb-dot dot-g"></div>
+          </div>
+          <span class="wb-title">Workbook &middot; R66 SN-0042 &middot; Flight 47 &middot; Auto-Rotation Validation</span>
+          <span class="wb-live">DAL-A</span>
+        </div>
+        <div class="rotor-workbook">
+          <aside class="rw-rail">
+            <div class="rw-group">
+              <div class="rw-group-label">Primary flight</div>
+              <div class="rw-ch"><span class="rw-dot" style="background:#C8A983"></span>Cyclic &middot; pitch</div>
+              <div class="rw-ch"><span class="rw-dot" style="background:#4FC3F7"></span>Cyclic &middot; roll</div>
+              <div class="rw-ch"><span class="rw-dot" style="background:#81C784"></span>Collective</div>
+              <div class="rw-ch"><span class="rw-dot" style="background:#FF8A65"></span>Pedal</div>
+            </div>
+            <div class="rw-group">
+              <div class="rw-group-label">Rotor</div>
+              <div class="rw-ch"><span class="rw-dot" style="background:#CE93D8"></span>Rotor RPM (Nr)</div>
+              <div class="rw-ch"><span class="rw-dot" style="background:#90A4AE"></span>Engine RPM (Ne)</div>
+              <div class="rw-ch"><span class="rw-dot" style="background:#FFD54F"></span>Rotor torque</div>
+            </div>
+            <div class="rw-group">
+              <div class="rw-group-label">Actuators &middot; triplex</div>
+              <div class="rw-ch">Servo A &middot; cmd/pos</div>
+              <div class="rw-ch">Servo B &middot; cmd/pos</div>
+              <div class="rw-ch">Servo C &middot; cmd/pos</div>
+              <div class="rw-ch rw-flag">Triplex disagreement</div>
+            </div>
+            <div class="rw-group">
+              <div class="rw-group-label">SkyOS</div>
+              <div class="rw-ch">Mode &middot; state</div>
+              <div class="rw-ch">Logic branch ID</div>
+              <div class="rw-ch">Fault flags</div>
+            </div>
+          </aside>
+          <div class="rw-chart">
+            <svg class="rw-svg" viewBox="0 0 800 360" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="rgba(255,255,255,0.05)" stroke-width="0.5">
+                <line x1="0" y1="60" x2="800" y2="60"/>
+                <line x1="0" y1="120" x2="800" y2="120"/>
+                <line x1="0" y1="180" x2="800" y2="180"/>
+                <line x1="0" y1="240" x2="800" y2="240"/>
+                <line x1="0" y1="300" x2="800" y2="300"/>
+                <line x1="200" y1="0" x2="200" y2="360"/>
+                <line x1="400" y1="0" x2="400" y2="360"/>
+                <line x1="600" y1="0" x2="600" y2="360"/>
+              </g>
+              <rect x="330" y="20" width="60" height="320" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.3)" stroke-dasharray="3,4" stroke-width="0.8"/>
+              <path d="M 0,60 Q 40,55 80,62 T 160,60 Q 200,58 240,64 T 320,60 L 340,40 L 360,90 L 380,55 Q 420,52 460,58 T 540,60 Q 600,55 660,62 T 800,60" fill="none" stroke="#C8A983" stroke-width="1.6"/>
+              <path d="M 0,120 Q 60,115 120,124 T 240,118 Q 300,122 340,116 L 360,128 L 380,114 Q 440,118 500,122 T 620,118 Q 700,122 800,120" fill="none" stroke="#4FC3F7" stroke-width="1.4" opacity="0.85"/>
+              <path d="M 0,180 Q 80,178 160,182 T 320,180 L 340,210 L 380,215 L 420,200 Q 500,195 580,198 T 800,196" fill="none" stroke="#81C784" stroke-width="1.5" opacity="0.85"/>
+              <path d="M 0,240 Q 60,238 120,242 T 240,240 Q 320,242 360,236 L 380,250 Q 460,246 540,242 T 700,244 Q 760,240 800,242" fill="none" stroke="#FF8A65" stroke-width="1.3" opacity="0.8"/>
+              <path d="M 0,300 L 320,300 L 340,318 L 360,322 L 380,310 L 410,302 Q 500,300 600,300 T 800,300" fill="none" stroke="#CE93D8" stroke-width="1.5"/>
+              <g font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(255,255,255,0.55)">
+                <line x1="340" y1="10" x2="340" y2="350" stroke="rgba(239,68,68,0.5)" stroke-width="1"/>
+                <text x="346" y="18" fill="#FCA5A5">&#x26A1; T+00:42 &middot; Engine cut &middot; auto entry</text>
+                <text x="346" y="30" fill="rgba(255,255,255,0.4)">SkyOS &middot; logic branch POH-AUTO-3.2</text>
+                <line x1="620" y1="10" x2="620" y2="350" stroke="rgba(200,169,131,0.5)" stroke-width="1" stroke-dasharray="2,3"/>
+                <text x="626" y="18" fill="#C8A983">&#x25CF; T+01:24 &middot; Flare init &middot; pilot stick</text>
+              </g>
+              <g font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)">
+                <text x="6" y="354">T+00:00</text>
+                <text x="200" y="354">T+00:30</text>
+                <text x="400" y="354">T+01:00</text>
+                <text x="600" y="354">T+01:30</text>
+                <text x="754" y="354">T+02:00</text>
+              </g>
+            </svg>
+          </div>
+          <aside class="rw-evidence">
+            <div class="rw-ev-label">Evidence</div>
+            <div class="rw-ev-row">
+              <div class="rw-ev-key">Test card</div>
+              <div class="rw-ev-val rw-ok">&#x2713; ATC-04 &middot; Power-off auto</div>
+            </div>
+            <div class="rw-ev-row">
+              <div class="rw-ev-key">Requirement</div>
+              <div class="rw-ev-val rw-ok">&#x2713; 14 CFR 27.143</div>
+            </div>
+            <div class="rw-ev-row">
+              <div class="rw-ev-key">Logic branch</div>
+              <div class="rw-ev-val rw-ok">&#x2713; POH-AUTO-3.2</div>
+            </div>
+            <div class="rw-ev-row">
+              <div class="rw-ev-key">Artifact</div>
+              <div class="rw-ev-val rw-pending">&#x1F7E1; Pending review</div>
+            </div>
+            <div class="rw-ev-row">
+              <div class="rw-ev-key">Anomalies</div>
+              <div class="rw-ev-val rw-flag-text">2 flagged</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <div class="workbook-caption">
+        <div class="wbc-tick"></div>
+        <div class="wbc-text">
+          <div class="wbc-label">Fig. 01 &middot; R66 auto-rotation validation</div>
+          <div class="wbc-headline">Pilot input, vehicle state, and SkyOS logic on one timeline. Every event ties to a test card. Every test card ties to a requirement. Every requirement ties to the cert package.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="workbook-frame reveal">
+      <div class="workbook-chrome">
+        <div class="workbook-bar">
+          <div class="wb-dots"><div class="wb-dot dot-r"></div><div class="wb-dot dot-y"></div><div class="wb-dot dot-g"></div></div>
+          <span class="wb-title">Workbook &middot; Tower Flyby Validation</span>
+          <span class="wb-live">Live</span>
+        </div>
+        <img src="images/nominal-workbook-overview.gif" alt="Nominal workbook with flight-path map and synchronized time-series telemetry" loading="lazy">
+      </div>
+      <div class="workbook-caption">
+        <div class="wbc-tick"></div>
+        <div class="wbc-text">
+          <div class="wbc-label">Fig. 02 &middot; Tower flyby validation</div>
+          <div class="wbc-headline">Annotate test points. Compare runs. Correlate geo, video, and time-series. Every event on the timeline ties back to a requirement &mdash; so your for-credit evidence record builds as you fly.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="workbook-frame reveal">
+      <div class="workbook-chrome">
+        <div class="workbook-bar">
+          <div class="wb-dots"><div class="wb-dot dot-r"></div><div class="wb-dot dot-y"></div><div class="wb-dot dot-g"></div></div>
+          <span class="wb-title">Workbook &middot; Drone Ocean Flight</span>
+          <span class="wb-live">Live</span>
+        </div>
+        <img src="images/nominal-multimodal.gif" alt="Nominal workbook with synchronized video, geospatial map, telemetry, and event log streams" loading="lazy">
+      </div>
+      <div class="workbook-caption">
+        <div class="wbc-tick"></div>
+        <div class="wbc-text">
+          <div class="wbc-label">Fig. 03 &middot; Multi-modal data fusion</div>
+          <div class="wbc-headline">Onboard video, telemetry, geo, and event logs synchronized to the millisecond. The same surface for HIL benches, iron birds, and live flight data &mdash; at 1–10 kHz across thousands of channels.</div>
+        </div>
+      </div>
     </div>
   </div>
 
+  <div class="outcomes stagger">
+    <div class="outcome"><div class="outcome-meta">Outcome 01</div><div class="outcome-text">Days of post-flight analysis collapse to minutes.</div></div>
+    <div class="outcome"><div class="outcome-meta">Outcome 02</div><div class="outcome-text">Anomalies caught during the flight, not the morning after.</div></div>
+    <div class="outcome"><div class="outcome-meta">Outcome 03</div><div class="outcome-text">Every engineer sees the same data, the same way.</div></div>
+  </div>
+</section>
 
-  <div class="solution-header">How Nominal solves it</div>
-  <div class="solution-cards">
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>Unified propulsion test capture</h4>
-      <p>Automatically ingest DAQ, telemetry, and sensor streams from Bacchus, Promontory, and Allegany test stands. Every channel, every test event, in one place.</p>
-      <div class="solution-outcome">→ Engineers across facilities see shared data within minutes of a fire</div>
+<!-- QUESTIONS -->
+<section id="questions">
+  <div class="section-eyebrow reveal">What you'd reasonably push back on / 04</div>
+  <h2 class="section-title reveal">The questions we usually get.</h2>
+  <p class="section-sub reveal">
+    Four answers, ahead of time. If anything here doesn't land, the walkthrough is the place to dig in.
+  </p>
+
+  <div class="q-grid stagger">
+    <div class="q-card">
+      <div class="q-num">Q &middot; 01</div>
+      <div class="q-question">We already have something for this.</div>
+      <div class="q-answer">
+        Most flight test programs do &mdash; dSpace for HIL, MATLAB and Simulink for analysis, an internal data lake somewhere in between, plus whatever the test card system is. None of that goes away. Nominal sits on top of it as the connective layer: same workbook surfaces HIL output, model predictions, scripts, pipelines, and live flight telemetry on one timeline. The teams we work with kept their stack and gained a shared surface across it.
+      </div>
     </div>
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>Cross-campaign regression</h4>
-      <p>Compare motor performance across every qualification and acceptance test automatically. Spot anomalies before they halt a program milestone.</p>
-      <div class="solution-outcome">→ Qualification decisions in hours, not days</div>
+
+    <div class="q-card">
+      <div class="q-num">Q &middot; 02</div>
+      <div class="q-question">We're certifying for the FAA. Are these defense references relevant?</div>
+      <div class="q-answer">
+        Shield AI flies F-16, V-BAT, and MQ-20 through some of the most regulated test ranges in the world. The Air Force Test Center runs the same review process across Edwards, Eglin, and Arnold. The workflow that gets unmanned platforms through DoD test authorities is structurally the same one that gets STC artifacts to an ACO: capture, correlate, prove, archive, repeat &mdash; every event traceable back to a requirement. The airworthiness authority is different. The data discipline isn't.
+      </div>
     </div>
-    <div class="solution-card connect">
-      <span class="product-badge badge-connect">Nominal Connect</span>
-      <h4>Facility-to-program data bridge</h4>
-      <p>Give every systems engineer — whether at Bacchus, Promontory, or Redondo Beach — real-time access to test results without analyst bottlenecks.</p>
-      <div class="solution-outcome">→ Eliminate the dedicated data analyst bottleneck</div>
+
+    <div class="q-card">
+      <div class="q-num">Q &middot; 03</div>
+      <div class="q-question">Switching infrastructure mid-program adds risk we can't afford.</div>
+      <div class="q-answer">
+        Agreed &mdash; which is why nobody we work with switched mid-program. Anduril ran Nominal in parallel before they consolidated. Shield AI started on a single airframe before expanding. The right shape for SkyOS is the same: pick one workstream &mdash; auto-rotation regression, triplex actuator disagreement analysis, anomaly review on Black Hawk flights &mdash; and run it alongside what you have. If it earns the seat, it earns it on its own work.
+      </div>
     </div>
-    <div class="solution-card ai">
-      <span class="product-badge badge-ai">Nominal AI</span>
-      <h4>Anomaly detection on combustion data</h4>
-      <p>Automatically flag off-nominal signatures in thrust, chamber pressure, and burn rate data. Surface issues that would otherwise take days to find in raw telemetry.</p>
-      <div class="solution-outcome">→ From 4-hour reviews to 20-minute debriefs</div>
+
+    <div class="q-card">
+      <div class="q-num">Q &middot; 04</div>
+      <div class="q-question">We're ten years in. Why now?</div>
+      <div class="q-answer">
+        Because the R66 STC is the first one, not the last. The hardware transfers across airframes, the operating system transfers across airframes, and the regulatory artifacts transfer across airframes &mdash; Mark Groden has said as much publicly. The test data discipline that produces those artifacts is the one piece of the stack that usually doesn't transfer. The right time to fix that is before Cirrus, Black Hawk, and fixed-wing are running in parallel &mdash; not after.
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- =================== TAB: SYSTEMS INTEGRATION =================== -->
-<div id="tab-systems" class="tab-section">
-  <div class="section-header">
-    <div class="section-title">
-      <h2>Systems Integration &amp; Test</h2>
-      <p>B-21 and Sentinel integration involves thousands of test events across hardware, software, and RF subsystems. Your SIT teams are drowning in data from disparate test stations with no common infrastructure.</p>
-    </div>
-    <div class="metric-badge">
-      <span class="metric-num">8×</span>
-      <span class="metric-label">faster post-test<br>data correlation</span>
+<!-- TEAM -->
+<section id="team">
+  <div class="team-header">
+    <div class="team-header-left"><div class="team-eyebrow">Our team / 05</div></div>
+    <div class="team-header-right">
+      <h2 class="team-title">Engineers building for engineers.</h2>
+      <p class="team-sub">Nominal was founded by operators from Palantir, Anduril, Applied Intuition, Lockheed Martin, and the U.S. Navy &mdash; the same backgrounds you'd want on the other side of the table for a flight test conversation.</p>
     </div>
   </div>
+  <div class="team-grid stagger">
+    <a href="https://nominal.io/about-us" target="_blank" rel="noopener" class="team-card" style="text-decoration:none; color:inherit;">
+      <div class="team-photo-wrap"><img src="images/team-cameron.jpg" alt="Cameron McCord, Co-Founder &amp; CEO of Nominal"></div>
+      <div class="team-name">Cameron McCord</div>
+      <div class="team-role">Co-Founder / CEO</div>
+      <div class="team-prior"><b>Past:</b> US Navy &middot; Anduril &middot; Applied Intuition</div>
+    </a>
+    <a href="https://nominal.io/about-us" target="_blank" rel="noopener" class="team-card" style="text-decoration:none; color:inherit;">
+      <div class="team-photo-wrap"><img src="images/team-bryce.jpg" alt="Bryce Strauss, Co-Founder of Nominal"></div>
+      <div class="team-name">Bryce Strauss</div>
+      <div class="team-role">Co-Founder</div>
+      <div class="team-prior"><b>Past:</b> Lockheed Martin</div>
+    </a>
+    <a href="https://nominal.io/about-us" target="_blank" rel="noopener" class="team-card" style="text-decoration:none; color:inherit;">
+      <div class="team-photo-wrap"><img src="images/team-jason.jpg" alt="Jason Hoch, Co-Founder of Nominal"></div>
+      <div class="team-name">Jason Hoch</div>
+      <div class="team-role">Co-Founder</div>
+      <div class="team-prior"><b>Past:</b> Palantir &middot; Vercel</div>
+    </a>
+  </div>
+  <div class="team-cta-row">
+    <p class="team-cta-text">Behind every flight test campaign Nominal supports is a team that's built and operated systems just like SkyOS.</p>
+    <a href="https://nominal.io/about-us" target="_blank" rel="noopener" class="btn-ghost">Read more about the team →</a>
+  </div>
+</section>
 
-  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
-  <div class="job-cards">
-    <div class="job-card">
-      <span class="job-dept">Systems Test</span>
-      <div class="job-title">Systems Integration &amp; Test Engineer – B-21</div>
-      <div class="job-location">📍 Palmdale, CA</div>
-      <div class="job-desc">Manages <em>ground test and integration data across B-21 development</em>. Currently exporting raw telemetry streams post-test for manual review by separate engineering teams.</div>
-    </div>
-    <div class="job-card">
-      <span class="job-dept">Ground Systems</span>
-      <div class="job-title">Ground Systems Integration Engineer</div>
-      <div class="job-location">📍 Redondo Beach, CA</div>
-      <div class="job-desc">Building <em>custom ground support equipment data tooling</em> for Sentinel. Each test campaign requires bespoke integration work between test stations and engineering review tools.</div>
-    </div>
-    <div class="job-card">
-      <span class="job-dept">Mission Assurance</span>
-      <div class="job-title">Mission Assurance Engineer</div>
-      <div class="job-location">📍 Palmdale, CA</div>
-      <div class="job-desc">Responsible for <em>post-test anomaly investigation and data review</em> across B-21 ground and flight tests. Correlation across subsystems requires pulling from multiple disconnected databases.</div>
+<!-- CTA -->
+<section id="cta">
+  <div class="section-eyebrow reveal" style="display:inline-flex;">Next steps</div>
+  <h2 class="cta-headline reveal">You're moving faster than anyone in aviation. <em>Let's make sure your data infrastructure can keep up.</em></h2>
+  <p class="cta-body reveal">
+    <a href="https://nominal.io" target="_blank" rel="noopener" style="color:inherit; border-bottom:1px solid var(--line); text-decoration:none; padding-bottom:1px;">Nominal</a> already powers flight test for Shield AI, Anduril, and the Air Force Test Center across Edwards, Eglin, and Arnold. We'd like to show you what that looks like applied to SkyOS &mdash; on the R66, the Black Hawk, and whatever comes next.
+  </p>
+  <div class="cta-signature reveal">
+    <div class="cta-sig-mark">SR</div>
+    <div class="cta-sig-text">
+      <div class="cta-sig-eyebrow">From Spencer Russo &middot; <a href="https://nominal.io" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--line);">Nominal</a></div>
+      <div class="cta-sig-body">I put this together for Skyryse after watching the Black Hawk first flight. The 91-day turnaround from first part removed to fully automated takeoff is the kind of velocity that makes test review infrastructure a strategic decision rather than a procurement one. If any of it lands, I'd value 30 minutes against a flight log of your choosing &mdash; no slides, no NDA.</div>
     </div>
   </div>
-
-
-  <div class="solution-header">How Nominal solves it</div>
-  <div class="solution-cards">
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>Test event ingestion and archiving</h4>
-      <p>Capture every channel from every SIT event in a structured, searchable archive. Query across campaigns in seconds instead of pulling raw files from disconnected systems.</p>
-      <div class="solution-outcome">→ Every test event accessible to every engineer in minutes</div>
-    </div>
-    <div class="solution-card connect">
-      <span class="product-badge badge-connect">Nominal Connect</span>
-      <h4>Palmdale → Redondo Beach data sync</h4>
-      <p>Eliminate the gap between what test ops sees at the integration facility and what systems engineering sees at the program office. Real-time shared access, no manual packaging.</p>
-      <div class="solution-outcome">→ Post-test debrief starts before the team leaves the floor</div>
-    </div>
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>Cross-campaign trending</h4>
-      <p>Track system health trends across the full B-21 and Sentinel test manifest. Catch recurring anomalies before they become program risks.</p>
-      <div class="solution-outcome">→ Proactive anomaly management across major programs</div>
-    </div>
-    <div class="solution-card ai">
-      <span class="product-badge badge-ai">Nominal AI</span>
-      <h4>Automated test readiness checks</h4>
-      <p>Build the data infrastructure for next-generation programs before the first test event. Nominal's flexible schema maps to any system architecture from day one.</p>
-      <div class="solution-outcome">→ Day-one data infrastructure for new programs</div>
-    </div>
+  <div class="cta-expect reveal">
+    <div class="cta-expect-item"><div class="cta-expect-num">30 min</div><div class="cta-expect-text">Working session, not a slideware pitch.</div></div>
+    <div class="cta-expect-item"><div class="cta-expect-num">Your data</div><div class="cta-expect-text">Bring a flight log; we'll demo against it live.</div></div>
+    <div class="cta-expect-item"><div class="cta-expect-num">No NDA</div><div class="cta-expect-text">No procurement, no commitment &mdash; just a walkthrough.</div></div>
   </div>
-</div>
-
-<!-- =================== TAB: SPACE SYSTEMS =================== -->
-<div id="tab-space" class="tab-section">
-  <div class="section-header">
-    <div class="section-title">
-      <h2>Space Systems</h2>
-      <p>HALO lunar gateway module. Space-based radar. Next-gen satellite buses. Space Systems is executing some of the most complex AIT campaigns in the industry — with test data scattered across disconnected tools.</p>
-    </div>
-    <div class="metric-badge">
-      <span class="metric-num">60%</span>
-      <span class="metric-label">fewer hours lost to<br>AIT data correlation</span>
-    </div>
-  </div>
-
-  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
-  <div class="job-cards">
-    <div class="job-card">
-      <span class="job-dept">Spacecraft AIT</span>
-      <div class="job-title">Spacecraft Test Engineer – HALO</div>
-      <div class="job-location">📍 Gilbert, AZ</div>
-      <div class="job-desc">Executing <em>functional and environmental test campaigns</em> for the HALO lunar gateway module. Correlating thermal-vac, vibration, and EMI data across multiple test configurations in spreadsheets.</div>
-    </div>
-    <div class="job-card">
-      <span class="job-dept">Avionics</span>
-      <div class="job-title">Avionics Systems Test Engineer</div>
-      <div class="job-location">📍 Redondo Beach, CA</div>
-      <div class="job-desc">Testing <em>satellite avionics hardware</em> through qualification campaigns. Bus telemetry and test data live in separate systems with no automated cross-correlation.</div>
-    </div>
-    <div class="job-card">
-      <span class="job-dept">Mission Systems</span>
-      <div class="job-title">Lead Systems Test Engineer, Space</div>
-      <div class="job-location">📍 Redondo Beach, CA</div>
-      <div class="job-desc">Leading <em>AIT for satellite programs</em> under schedule pressure. Manual data stitching between test stations is one of the top drivers of schedule slip.</div>
-    </div>
-  </div>
-
-
-  <div class="solution-header">How Nominal solves it</div>
-  <div class="solution-cards">
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>Spacecraft AIT data unification</h4>
-      <p>Connect thermal-vac chambers, vibration tables, and RF test equipment to a single data layer. Every engineer sees the same data in real time, regardless of test station.</p>
-      <div class="solution-outcome">→ AIT teams spend time analyzing, not formatting</div>
-    </div>
-    <div class="solution-card connect">
-      <span class="product-badge badge-connect">Nominal Connect</span>
-      <h4>Test-to-ops handoff</h4>
-      <p>Pass the complete AIT dataset directly to mission operations teams. No re-entering data, no "what configuration was this?" at launch readiness review.</p>
-      <div class="solution-outcome">→ Operations teams ready at launch</div>
-    </div>
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>Multi-program AIT tracking</h4>
-      <p>Run HALO, space-based radar, and satellite AIT campaigns concurrently without losing track of where each program stands.</p>
-      <div class="solution-outcome">→ Scale AIT without scaling headcount</div>
-    </div>
-    <div class="solution-card ai">
-      <span class="product-badge badge-ai">Nominal AI</span>
-      <h4>Environmental test anomaly detection</h4>
-      <p>Flag unexpected thermal responses, vibration transmissibility anomalies, or EMI interference patterns in real time during test.</p>
-      <div class="solution-outcome">→ Find issues before they become NCRs</div>
-    </div>
-  </div>
-</div>
-
-<!-- =================== TAB: AERONAUTICS =================== -->
-<div id="tab-aero" class="tab-section">
-  <div class="section-header">
-    <div class="section-title">
-      <h2>Aeronautics Systems</h2>
-      <p>B-21 is the most advanced strike aircraft ever built. Flight test at Edwards is generating more data per sortie than any program in Northrop's history — and your teams need to review it faster.</p>
-    </div>
-    <div class="metric-badge">
-      <span class="metric-num">5×</span>
-      <span class="metric-label">faster flight test<br>data review</span>
-    </div>
-  </div>
-
-  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
-  <div class="job-cards">
-    <div class="job-card">
-      <span class="job-dept">Flight Test</span>
-      <div class="job-title">Flight Test Engineer – B-21</div>
-      <div class="job-location">📍 Edwards AFB, CA</div>
-      <div class="job-desc">Executing <em>B-21 flight test sorties and post-flight data analysis</em>. Each sortie generates terabytes of FTI data requiring hours of manual processing before engineers can begin review.</div>
-    </div>
-    <div class="job-card">
-      <span class="job-dept">Structures</span>
-      <div class="job-title">Structures Test Engineer</div>
-      <div class="job-location">📍 Palmdale, CA</div>
-      <div class="job-desc">Responsible for <em>airframe structural test and fatigue analysis</em>. Managing strain gauge, load, and acoustic data from high-channel-count test articles across development campaigns.</div>
-    </div>
-    <div class="job-card">
-      <span class="job-dept">Avionics</span>
-      <div class="job-title">Avionics Systems Integration Engineer</div>
-      <div class="job-location">📍 Palmdale, CA</div>
-      <div class="job-desc">Integrating and testing <em>advanced avionics systems</em> on B-21. Test data from individual LRUs lives in separate systems with no automated correlation to vehicle-level performance.</div>
-    </div>
-  </div>
-
-
-  <div class="solution-header">How Nominal solves it</div>
-  <div class="solution-cards">
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>Flight test data ingestion and review</h4>
-      <p>Automatically ingest FTI data from every B-21 sortie. Time-align all channels and make the full dataset searchable within minutes of landing.</p>
-      <div class="solution-outcome">→ Post-flight review starts on the drive back from the flight line</div>
-    </div>
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>Cross-sortie regression</h4>
-      <p>Compare performance across every flight test sortie automatically. Spot anomalies and trends across the test matrix without rebuilding analysis scripts for each flight.</p>
-      <div class="solution-outcome">→ Test point closeout in hours, not days</div>
-    </div>
-    <div class="solution-card connect">
-      <span class="product-badge badge-connect">Nominal Connect</span>
-      <h4>Edwards → Palmdale data bridge</h4>
-      <p>Give every systems engineer at the program office real-time visibility into flight test results. No waiting for data packages to be manually assembled and distributed.</p>
-      <div class="solution-outcome">→ Program office informed same day as the sortie</div>
-    </div>
-    <div class="solution-card ai">
-      <span class="product-badge badge-ai">Nominal AI</span>
-      <h4>Anomaly detection across flight test</h4>
-      <p>Automatically flag off-nominal signatures across all subsystems. Surface issues that would otherwise take days to find buried in terabytes of raw FTI data.</p>
-      <div class="solution-outcome">→ From 8-hour reviews to 90-minute debriefs</div>
-    </div>
-  </div>
-</div>
-
-<!-- =================== TAB: MISSION SYSTEMS =================== -->
-<div id="tab-mission" class="tab-section">
-  <div class="section-header">
-    <div class="section-title">
-      <h2>Mission Systems &amp; Electronics</h2>
-      <p>Radar, EW, and C2 systems require rigorous test campaigns at the component, subsystem, and system level. Your test engineers are running HITL infrastructure that generates more data per campaign than legacy tools can handle.</p>
-    </div>
-    <div class="metric-badge">
-      <span class="metric-num">12×</span>
-      <span class="metric-label">faster HITL test<br>review cycles</span>
-    </div>
-  </div>
-
-  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
-  <div class="job-cards">
-    <div class="job-card">
-      <span class="job-dept">Radar Systems</span>
-      <div class="job-title">Radar Systems Test Engineer</div>
-      <div class="job-location">📍 Linthicum, MD</div>
-      <div class="job-desc">Building and running <em>AESA radar HITL test infrastructure</em>. Every campaign generates RF measurement data, sim outputs, and performance logs that live in disconnected systems.</div>
-    </div>
-    <div class="job-card">
-      <span class="job-dept">Electronic Warfare</span>
-      <div class="job-title">EW Systems Test Engineer</div>
-      <div class="job-location">📍 Rolling Meadows, IL</div>
-      <div class="job-desc">Responsible for <em>electronic warfare system characterization and test</em>. Currently rebuilding analysis pipelines from scratch each campaign because test data isn't persisted in a queryable format.</div>
-    </div>
-    <div class="job-card">
-      <span class="job-dept">C2 Systems</span>
-      <div class="job-title">C2 Systems Integration Engineer</div>
-      <div class="job-location">📍 Herndon, VA</div>
-      <div class="job-desc">Evaluating <em>command and control system performance</em> across simulation and live test events. Comparison requires custom scripts that break every time the system configuration changes.</div>
-    </div>
-  </div>
-
-
-  <div class="solution-header">How Nominal solves it</div>
-  <div class="solution-cards">
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>HITL test data capture and review</h4>
-      <p>Automatically capture RF measurements, sim state, and system outputs from every HITL campaign. Time-align all sources and make the full dataset searchable immediately after test.</p>
-      <div class="solution-outcome">→ HITL review cycles from 2 days to 2 hours</div>
-    </div>
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>Cross-campaign performance trending</h4>
-      <p>Build system performance trends across every test campaign in a shared, version-controlled dataset. Close the loop between simulation predictions and measured results.</p>
-      <div class="solution-outcome">→ Continuous improvement across the test program</div>
-    </div>
-    <div class="solution-card connect">
-      <span class="product-badge badge-connect">Nominal Connect</span>
-      <h4>Multi-site test data sharing</h4>
-      <p>Give every systems engineer — whether in Linthicum, Rolling Meadows, or Herndon — access to a shared, up-to-date test record without analyst bottlenecks.</p>
-      <div class="solution-outcome">→ One source of truth across all Mission Systems sites</div>
-    </div>
-    <div class="solution-card ai">
-      <span class="product-badge badge-ai">Nominal AI</span>
-      <h4>Anomaly flagging in RF and EW data</h4>
-      <p>Automatically surface measurement anomalies, unexpected signatures, or performance regressions across HITL campaigns. Miss nothing. Review everything faster.</p>
-      <div class="solution-outcome">→ Miss nothing. Review everything faster.</div>
-    </div>
-  </div>
-</div>
-
-<!-- =================== TAB: MANUFACTURING =================== -->
-<div id="tab-manufacturing" class="tab-section">
-  <div class="section-header">
-    <div class="section-title">
-      <h2>Manufacturing &amp; Production</h2>
-      <p>Northrop Grumman is a production company with $84B in backlog. With B-21, Sentinel, and space systems all ramping simultaneously, your manufacturing engineers need test data infrastructure that scales with production rates.</p>
-    </div>
-    <div class="metric-badge">
-      <span class="metric-num">3×</span>
-      <span class="metric-label">faster acceptance<br>test sign-off</span>
-    </div>
-  </div>
-
-  <div class="subsection-label">Open Roles — the pain they're being hired to solve</div>
-  <div class="job-cards">
-    <div class="job-card">
-      <span class="job-dept">Manufacturing Engineering</span>
-      <div class="job-title">Manufacturing Engineer – Sentinel</div>
-      <div class="job-location">📍 Roy, UT</div>
-      <div class="job-desc">Owns <em>manufacturing engineering for Sentinel Stage 2 production</em>. Test data from production acceptance lives in standalone systems disconnected from design-as-built records.</div>
-    </div>
-    <div class="job-card">
-      <span class="job-dept">Production</span>
-      <div class="job-title">Production Test Engineer</div>
-      <div class="job-location">📍 Palmdale, CA</div>
-      <div class="job-desc">Managing <em>B-21 production acceptance test</em> at scale. Acceptance test data for each aircraft is siloed — no cross-unit trending, no automated limit checking.</div>
-    </div>
-    <div class="job-card">
-      <span class="job-dept">Quality &amp; Operations</span>
-      <div class="job-title">Director, Manufacturing Operations</div>
-      <div class="job-location">📍 Redondo Beach, CA</div>
-      <div class="job-desc">Owns <em>manufacturing efficiency and quality across all production programs</em>. Data to support operational decisions is fragmented across program offices and test facilities.</div>
-    </div>
-  </div>
-
-
-  <div class="solution-header">How Nominal solves it</div>
-  <div class="solution-cards">
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>Production acceptance test automation</h4>
-      <p>Automate pass/fail evaluation for every production acceptance test against defined limits. Generate acceptance reports automatically instead of manually assembling data packages.</p>
-      <div class="solution-outcome">→ Same-day acceptance sign-off at production rates</div>
-    </div>
-    <div class="solution-card core">
-      <span class="product-badge badge-core">Nominal Core</span>
-      <h4>Production fleet trending</h4>
-      <p>Track performance trends across every production unit. Spot early indicators of manufacturing variation before they become systematic defects across the fleet.</p>
-      <div class="solution-outcome">→ Catch production issues at unit 10, not unit 50</div>
-    </div>
-    <div class="solution-card connect">
-      <span class="product-badge badge-connect">Nominal Connect</span>
-      <h4>Manufacturing-to-flight data handoff</h4>
-      <p>Link every production test record to the vehicle it supports. When an anomaly shows up on the flight line, root cause analysis starts with a complete production history.</p>
-      <div class="solution-outcome">→ Root cause in hours, not days</div>
-    </div>
-    <div class="solution-card ai">
-      <span class="product-badge badge-ai">Nominal AI</span>
-      <h4>Operational efficiency insights</h4>
-      <p>Give operations leadership a live view of test cycle times, acceptance rates, and production quality trends. Replace lagging program reviews with real-time operational data.</p>
-      <div class="solution-outcome">→ Data-driven production management at program rates</div>
-    </div>
-  </div>
-</div>
+  <a href="mailto:spencer.russo@nominal.io?subject=SkyOS%20flight%20test%20walkthrough" class="btn-primary reveal" style="display:inline-flex;">
+    Book a 30-minute walkthrough
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M7 4l3.5 2.5L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <p class="cta-email reveal">Or email directly &mdash; <a href="mailto:spencer.russo@nominal.io">spencer.russo@nominal.io</a></p>
+</section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-left">
-    <p>Nominal can be running on your test data in days — not months.</p>
-    <strong>Ready to see it live?</strong>
-  </div>
-  <a href="mailto:Sam.agnew@nominal.io" class="cta-btn">Book a Demo</a>
+  <span class="footer-brand">Nominal &times; Skyryse</span>
+  <span class="footer-copy">&copy; 2026 Nominal, Inc. &mdash; <a href="https://nominal.io" target="_blank" rel="noopener">nominal.io</a></span>
 </footer>
 
 <script>
-  function showTab(name, btn) {
-    document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('tab-' + name).classList.add('active');
-    btn.classList.add('active');
+(function() {
+  const canvas = document.getElementById('instr-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const DPR = window.devicePixelRatio || 1;
+  let lw, lh, t = 0;
+  const cells = {
+    pitch:    document.querySelector('[data-instr="pitch"]'),
+    roll:     document.querySelector('[data-instr="roll"]'),
+    coll:     document.querySelector('[data-instr="coll"]'),
+    airspeed: document.querySelector('[data-instr="airspeed"]'),
+    tplus:    document.querySelector('[data-instr="tplus"]'),
+  };
+  function resize() {
+    lw = canvas.offsetWidth; lh = canvas.offsetHeight;
+    canvas.width = lw * DPR; canvas.height = lh * DPR;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   }
-</script>
+  function fmt(num, decimals) {
+    const sign = num >= 0 ? '+' : '−';
+    return sign + Math.abs(num).toFixed(decimals);
+  }
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  let lastUpdate = 0;
+  function tick(ts) {
+    if (!lastUpdate) lastUpdate = ts;
+    const dt = (ts - lastUpdate) / 1000;
+    lastUpdate = ts;
+    t += dt;
+    if (Math.floor(t * 7) !== Math.floor((t - dt) * 7)) {
+      const pitch = Math.sin(t * 0.8) * 1.8 + Math.sin(t * 2.3) * 0.4;
+      const roll  = Math.sin(t * 1.1 + 1) * 1.2;
+      const coll  = 60 + Math.sin(t * 0.5) * 4 + Math.sin(t * 1.7) * 1.5;
+      const air   = 87 + Math.sin(t * 0.3) * 3;
+      if (cells.pitch)    cells.pitch.innerHTML    = fmt(pitch, 2) + '<span class="unit">°/s</span>';
+      if (cells.roll)     cells.roll.innerHTML     = fmt(roll, 2)  + '<span class="unit">°/s</span>';
+      if (cells.coll)     cells.coll.innerHTML     = coll.toFixed(1) + '<span class="unit">%</span>';
+      if (cells.airspeed) cells.airspeed.innerHTML = Math.round(air) + '<span class="unit">kt</span>';
+      if (cells.tplus) {
+        const total = 84.6 + t;
+        const m = Math.floor(total / 60);
+        const s = (total % 60).toFixed(1);
+        cells.tplus.textContent = pad(m) + ':' + (parseFloat(s) < 10 ? '0' + s : s);
+      }
+    }
+    ctx.clearRect(0, 0, lw, lh);
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(200,169,131,0.85)';
+    ctx.lineWidth = 1.2;
+    const pts = 80;
+    for (let i = 0; i < pts; i++) {
+      const x = (i / (pts - 1)) * lw;
+      const phase = t - (pts - i) * 0.025;
+      const y = lh / 2 + Math.sin(phase * 4.5) * lh * 0.32 + Math.sin(phase * 9.2 + 0.7) * lh * 0.14 + Math.sin(phase * 17 + 1.3) * lh * 0.06;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    const lastY = lh / 2 + Math.sin(t * 4.5) * lh * 0.32 + Math.sin(t * 9.2 + 0.7) * lh * 0.14;
+    ctx.beginPath();
+    ctx.arc(lw - 1, lastY, 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = '#C8A983';
+    ctx.fill();
+    requestAnimationFrame(tick);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  requestAnimationFrame(tick);
+})();
 
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
+
+(function() {
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+  const targets = document.querySelectorAll('[data-count-num]');
+  if (!targets.length) return;
+  const cio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseFloat(el.textContent);
+      const dur = 1400; const start = performance.now();
+      function step(now) {
+        const k = Math.min((now - start) / dur, 1);
+        const v = target * easeOut(k);
+        el.textContent = target % 1 === 0 ? Math.round(v) : v.toFixed(1);
+        if (k < 1) requestAnimationFrame(step);
+        else el.textContent = target % 1 === 0 ? target : target.toFixed(1);
+      }
+      el.textContent = '0';
+      requestAnimationFrame(step);
+      cio.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  targets.forEach(el => cio.observe(el));
+})();
+</script>
 </body>
 </html>
