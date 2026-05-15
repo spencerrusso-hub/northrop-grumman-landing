@@ -435,6 +435,7 @@ section { padding: 96px 80px; }
 .logos-eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--gold); }
 .logos-row { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; flex: 1; }
 .logo-item { height: 44px; display: flex; align-items: center; opacity: 0.55; transition: opacity 0.3s; filter: grayscale(1) contrast(1.15); }
+.logo-item.logo-lg { height: 64px; }
 .logo-item:hover { opacity: 0.95; }
 .logo-item img { max-height: 100%; max-width: 180px; width: auto; height: auto; object-fit: contain; display: block; }
 .logos-tagline {
@@ -613,7 +614,7 @@ section { padding: 96px 80px; }
 }
 
 /* ── OUTCOMES ── */
-.outcomes { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.outcomes { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
 .outcome { padding: 0 28px; position: relative; }
 .outcome:first-child { padding-left: 4px; }
 .outcome + .outcome::before { content: ''; position: absolute; top: 4px; bottom: 4px; left: 0; width: 1px; background: var(--line); }
@@ -778,9 +779,9 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding:
       <div class="hero-eyebrow-line"></div>
       <span class="hero-eyebrow-text">Nominal &times; Skyryse</span>
     </div>
-    <h1>You're not building for three airframes.<br><span style="font-weight:400; color:var(--ink-mid);">You're building the operating system for flight.</span></h1>
+    <h1>The software compounds across every airframe.<br><span style="font-weight:400; color:var(--ink-mid);">The test record has to compound with it.</span></h1>
     <p class="hero-sub">
-      SkyOS is the universal layer &mdash; R66 today, Cirrus and Black Hawk in trail, every retrofit and Skyryse Defense airframe after that, 10&#8315;&#8313; across all of it. The test record has to compound the same way the software does, or the thesis caps at the first STC. Nominal already runs the data platform for Shield AI, Anduril, and the Air Force Test Center across Edwards, Eglin, and Arnold.
+      SkyOS is the universal layer &mdash; R66, Cirrus, Black Hawk, Skyryse Defense. Each new STC either starts from the last one or from scratch. Nominal is the data platform underneath Shield AI, Anduril, and the Air Force Test Center.
     </p>
     <div class="hero-cta-row">
       <a href="#cta" class="btn-primary">
@@ -792,7 +793,7 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding:
   </div>
 
   <div class="hero-photo-panel">
-    <img src="images/skyryse-hero.png" alt="Skyryse R66 in flight — SkyOS-equipped">
+    <img src="images/skyryse-hero2.png" alt="Rotorcraft on takeoff at sunrise — flight test">
     <div class="instr" aria-hidden="true">
       <div class="instr-header">
         <span class="instr-id">CH-04 · Live</span>
@@ -815,7 +816,7 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding:
     </div>
     <div class="hero-plate">
       <div class="hero-plate-tick"></div>
-      <span class="hero-plate-spec">Skyryse One &middot; <b>R66 Flight Test</b></span>
+      <span class="hero-plate-spec">SkyOS &middot; <b>Rotorcraft Flight Test</b></span>
     </div>
   </div>
 </section>
@@ -826,8 +827,10 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding:
     <div class="logos-eyebrow">Trusted by</div>
     <div class="logos-row">
       <div class="logo-item"><img src="images/logos/anduril.png" alt="Anduril"></div>
+      <div class="logo-item"><img src="images/logos/shield-ai.png" alt="Shield AI"></div>
+      <div class="logo-item logo-lg"><img src="images/logos/regent.png" alt="Regent"></div>
       <div class="logo-item"><img src="images/logos/hermeus.png" alt="Hermeus"></div>
-      <div class="logo-item"><img src="images/logos/scout-ai.png" alt="Shield AI"></div>
+      <div class="logo-item logo-lg"><img src="images/logos/us-air-force.png" alt="US Air Force"></div>
     </div>
     <div class="logos-tagline">
       One platform across every airframe &mdash; the same problem SkyOS is solving for aviation.
@@ -844,11 +847,8 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding:
     <p class="matrix-para reveal">
       SkyOS is one operating system across R66, Cirrus SR22, and UH-60 Black Hawk &mdash; with fixed-wing next. The same deterministic logic tree. The same triply-redundant hardware. The same pilot's operating handbook encoded in code. The hardware and software transfer cleanly between airframes. The test artifacts should too.
     </p>
-    <p class="matrix-para reveal">
-      Every airframe inherits the full operating handbook. Every failure mode has to be flown, captured, and proved deterministic. Every handling qualities tune has to be re-validated. Every for-credit flight produces evidence that has to survive FAA review. And every airframe you add multiplies the matrix.
-    </p>
     <p class="matrix-pull reveal">
-      The platform you analyze that data on decides whether each new STC starts from scratch &mdash; or from the last one.
+      The hardware transfers. The software transfers. Whether the test evidence transfers with them is a tooling decision.
     </p>
   </div>
 </section>
@@ -913,7 +913,7 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding:
             <div class="wb-dot dot-g"></div>
           </div>
           <span class="wb-title">Workbook &middot; R66 SN-0042 &middot; Flight 47 &middot; Auto-Rotation Validation</span>
-          <span class="wb-live">DAL-A</span>
+          <span class="wb-live">For-credit</span>
         </div>
         <div class="rotor-workbook">
           <aside class="rw-rail">
@@ -1051,8 +1051,7 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding:
 
   <div class="outcomes stagger">
     <div class="outcome"><div class="outcome-meta">Outcome 01</div><div class="outcome-text">Days of post-flight analysis collapse to minutes.</div></div>
-    <div class="outcome"><div class="outcome-meta">Outcome 02</div><div class="outcome-text">Anomalies caught during the flight, not the morning after.</div></div>
-    <div class="outcome"><div class="outcome-meta">Outcome 03</div><div class="outcome-text">Every engineer sees the same data, the same way.</div></div>
+    <div class="outcome"><div class="outcome-meta">Outcome 02</div><div class="outcome-text">Every engineer sees the same data, the same way.</div></div>
   </div>
 </section>
 
@@ -1075,9 +1074,9 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding:
 
     <div class="q-card">
       <div class="q-num">Q &middot; 02</div>
-      <div class="q-question">We're certifying for the FAA. Are these defense references relevant?</div>
+      <div class="q-question">We're certifying for the FAA <em>and</em> standing up Skyryse Defense.</div>
       <div class="q-answer">
-        Shield AI flies F-16, V-BAT, and MQ-20 through some of the most regulated test ranges in the world. The Air Force Test Center runs the same review process across Edwards, Eglin, and Arnold. The workflow that gets unmanned platforms through DoD test authorities is structurally the same one that gets STC artifacts to an ACO: capture, correlate, prove, archive, repeat &mdash; every event traceable back to a requirement. The airworthiness authority is different. The data discipline isn't.
+        Then the defense references on this page are operational validation for half the company. Shield AI flies F-16, V-BAT, and MQ-20 through the most regulated test ranges in the world. The Air Force Test Center runs the same review process across Edwards, Eglin, and Arnold. The data discipline that ships unmanned platforms through DoD test authorities is the same one that ships STC artifacts to an ACO: capture, correlate, prove, archive, repeat &mdash; every event traceable to a requirement. Different airworthiness authority. Same discipline.
       </div>
     </div>
 
@@ -1093,7 +1092,7 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding:
       <div class="q-num">Q &middot; 04</div>
       <div class="q-question">We're ten years in. Why now?</div>
       <div class="q-answer">
-        Because the R66 STC is the first one, not the last. The hardware transfers across airframes, the operating system transfers across airframes, and the regulatory artifacts transfer across airframes &mdash; Mark Groden has said as much publicly. The test data discipline that produces those artifacts is the one piece of the stack that usually doesn't transfer. The right time to fix that is before Cirrus, Black Hawk, and fixed-wing are running in parallel &mdash; not after.
+        Because the R66 STC is the first one, not the last. Hardware, operating system, and regulatory artifacts all transfer across airframes &mdash; Mark Groden has said as much publicly. The test data discipline that produces those artifacts is the one piece of the stack that usually doesn't. The right time to fix that is before Cirrus, Black Hawk, and fixed-wing are running in parallel &mdash; not after.
       </div>
     </div>
   </div>
@@ -1104,7 +1103,7 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding:
   <div class="team-header">
     <div class="team-header-left"><div class="team-eyebrow">Our team / 05</div></div>
     <div class="team-header-right">
-      <h2 class="team-title">Engineers building for engineers.</h2>
+      <h2 class="team-title">The team you'd want on the other side.</h2>
       <p class="team-sub">Nominal was founded by operators from Palantir, Anduril, Applied Intuition, Lockheed Martin, and the U.S. Navy &mdash; the same backgrounds you'd want on the other side of the table for a flight test conversation.</p>
     </div>
   </div>
@@ -1145,15 +1144,10 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding:
     <div class="cta-sig-mark">SR</div>
     <div class="cta-sig-text">
       <div class="cta-sig-eyebrow">From Spencer Russo &middot; <a href="https://nominal.io" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--line);">Nominal</a></div>
-      <div class="cta-sig-body">I put this together for Skyryse after watching the Black Hawk first flight. The 91-day turnaround from first part removed to fully automated takeoff is the kind of velocity that makes test review infrastructure a strategic decision rather than a procurement one. If any of it lands, I'd value 30 minutes against a flight log of your choosing &mdash; no slides, no NDA.</div>
+      <div class="cta-sig-body">I put this together for Skyryse after watching the Black Hawk first take flight. The 91-day turnaround from first part removed to fully automated takeoff is epic. That type of velocity makes test review infrastructure a strategic decision rather than a procurement one. If any of it lands, we'd value 30 minutes, no slides, just demo.</div>
     </div>
   </div>
-  <div class="cta-expect reveal">
-    <div class="cta-expect-item"><div class="cta-expect-num">30 min</div><div class="cta-expect-text">Working session, not a slideware pitch.</div></div>
-    <div class="cta-expect-item"><div class="cta-expect-num">Your data</div><div class="cta-expect-text">Bring a flight log; we'll demo against it live.</div></div>
-    <div class="cta-expect-item"><div class="cta-expect-num">No NDA</div><div class="cta-expect-text">No procurement, no commitment &mdash; just a walkthrough.</div></div>
-  </div>
-  <a href="mailto:spencer.russo@nominal.io?subject=SkyOS%20flight%20test%20walkthrough" class="btn-primary reveal" style="display:inline-flex;">
+  <a href="mailto:spencer.russo@nominal.io?subject=SkyOS%20flight%20test%20walkthrough" class="btn-primary reveal" style="display:inline-flex; margin-top:16px;">
     Book a 30-minute walkthrough
     <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M7 4l3.5 2.5L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
